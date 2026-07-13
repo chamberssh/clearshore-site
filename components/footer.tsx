@@ -45,6 +45,11 @@ export function Footer() {
                 About Shelley
               </Link>
             </li>
+            <li>
+              <Link href="/blog" className="hover:text-soft-teal">
+                Blog
+              </Link>
+            </li>
           </ul>
         </div>
       </div>
