@@ -45,7 +45,7 @@ export function Header() {
             </span>
           </Link>
 
-          <ul className="hidden items-center gap-8 sm:flex">
+          <ul className="hidden items-center gap-6 lg:flex">
             {navLinks.map((link) => (
               <li key={link.href}>
                 <Link
@@ -58,7 +58,7 @@ export function Header() {
             ))}
           </ul>
 
-          <div className="hidden sm:block">
+          <div className="hidden lg:block">
             <Button
               render={<Link href="/contact" />}
               nativeButton={false}
@@ -70,7 +70,7 @@ export function Header() {
 
           <button
             type="button"
-            className="sm:hidden"
+            className="lg:hidden"
             aria-label={mobileOpen ? "Close menu" : "Open menu"}
             aria-expanded={mobileOpen}
             onClick={() => setMobileOpen((open) => !open)}
@@ -81,7 +81,7 @@ export function Header() {
 
         <ul
           className={cn(
-            "flex flex-col gap-1 border-t border-white/10 px-4 pb-4 sm:hidden",
+            "flex flex-col gap-1 border-t border-white/10 px-4 pb-4 lg:hidden",
             mobileOpen ? "block" : "hidden"
           )}
         >
