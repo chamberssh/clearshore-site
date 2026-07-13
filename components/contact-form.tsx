@@ -3,16 +3,43 @@
 import { useState, type FormEvent } from "react";
 import { Button } from "@/components/ui/button";
 
-export function ContactForm() {
-  const [submitted, setSubmitted] = useState(false);
+type Status = "idle" | "submitting" | "success" | "error";
 
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+export function ContactForm() {
+  const [status, setStatus] = useState<Status>("idle");
+
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    setSubmitted(true);
-    event.currentTarget.reset();
+    setStatus("submitting");
+
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+    formData.append(
+      "access_key",
+      process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY ?? ""
+    );
+    formData.append("subject", "New enquiry from Clearshore Counselling website");
+    formData.append("from_name", "Clearshore Counselling website");
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData,
+      });
+      const result = await response.json();
+
+      if (result.success) {
+        setStatus("success");
+        form.reset();
+      } else {
+        setStatus("error");
+      }
+    } catch {
+      setStatus("error");
+    }
   }
 
-  if (submitted) {
+  if (status === "success") {
     return (
       <div className="rounded-3xl border border-soft-teal/40 bg-white p-8 text-center shadow-sm">
         <h3 className="font-heading text-2xl text-teal">Thank you</h3>
@@ -29,6 +56,16 @@ export function ContactForm() {
       onSubmit={handleSubmit}
       className="space-y-5 rounded-3xl border border-soft-teal/40 bg-white p-8 shadow-sm"
     >
+      {/* Honeypot field for spam bots — hidden from real visitors */}
+      <input
+        type="checkbox"
+        name="botcheck"
+        className="hidden"
+        style={{ display: "none" }}
+        tabIndex={-1}
+        autoComplete="off"
+      />
+
       <div>
         <label htmlFor="name" className="block text-sm font-medium text-ink">
           Name
@@ -75,8 +112,15 @@ export function ContactForm() {
         </p>
       </div>
 
-      <Button type="submit" className="w-full">
-        Send message
+      {status === "error" && (
+        <p className="text-sm text-red-600" role="alert">
+          Something went wrong sending your message. Please try again, or
+          email us directly.
+        </p>
+      )}
+
+      <Button type="submit" className="w-full" disabled={status === "submitting"}>
+        {status === "submitting" ? "Sending…" : "Send message"}
       </Button>
     </form>
   );
