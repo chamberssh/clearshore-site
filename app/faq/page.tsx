@@ -170,7 +170,7 @@ export default function FAQ() {
       </section>
 
       <section className="px-4 pt-16 sm:px-6">
-        <div className="mx-auto max-w-3xl rounded-3xl border-l-4 border-gold bg-teal/5 p-6 sm:p-8">
+        <div className="mx-auto max-w-5xl rounded-3xl border-l-4 border-gold bg-teal/5 p-6 sm:p-8">
           <div className="flex items-start gap-4">
             <span className="flex size-11 shrink-0 items-center justify-center rounded-full bg-teal text-white">
               <PhoneCall className="size-5" aria-hidden="true" />
@@ -208,7 +208,7 @@ export default function FAQ() {
                 : "bg-soft-teal/10 px-4 py-16 sm:px-6"
             }
           >
-            <div className="mx-auto max-w-3xl">
+            <div className="mx-auto max-w-5xl">
               <div className="flex items-center gap-3">
                 <span className="flex size-11 shrink-0 items-center justify-center rounded-full bg-teal text-white">
                   <Icon className="size-5" aria-hidden="true" />

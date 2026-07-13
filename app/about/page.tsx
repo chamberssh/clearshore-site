@@ -104,7 +104,7 @@ export default function About() {
       </section>
 
       <section className="bg-soft-teal/10 px-4 py-20 sm:px-6">
-        <div className="mx-auto max-w-3xl">
+        <div className="mx-auto max-w-5xl">
           <h2 className="font-heading text-3xl text-teal">
             From the classroom to child safety
           </h2>
@@ -128,7 +128,7 @@ export default function About() {
       </section>
 
       <section className="px-4 py-20 sm:px-6">
-        <div className="mx-auto max-w-3xl rounded-3xl border-l-4 border-gold bg-teal/5 p-8 sm:p-10">
+        <div className="mx-auto max-w-5xl rounded-3xl border-l-4 border-gold bg-teal/5 p-8 sm:p-10">
           <h2 className="font-heading text-3xl text-teal">
             The loss that shaped this work
           </h2>
@@ -144,7 +144,7 @@ export default function About() {
       </section>
 
       <section className="bg-soft-teal/10 px-4 py-20 sm:px-6">
-        <div className="mx-auto max-w-3xl">
+        <div className="mx-auto max-w-5xl">
           <h2 className="font-heading text-3xl text-teal">
             Walk to Remember
           </h2>
@@ -159,7 +159,7 @@ export default function About() {
       </section>
 
       <section className="px-4 py-20 sm:px-6">
-        <div className="mx-auto max-w-3xl">
+        <div className="mx-auto max-w-5xl">
           <h2 className="font-heading text-3xl text-teal">My approach</h2>
           <p className="mt-6 text-ink/90">
             I believe in sitting with people in their hardest moments rather
@@ -173,7 +173,7 @@ export default function About() {
       </section>
 
       <section className="bg-soft-teal/10 px-4 py-20 sm:px-6">
-        <div className="mx-auto max-w-3xl">
+        <div className="mx-auto max-w-5xl">
           <h2 className="text-center font-heading text-3xl text-teal">
             Qualifications & training
           </h2>

@@ -53,7 +53,7 @@ export default function Contact() {
       </section>
 
       <section className="px-4 py-20 sm:px-6">
-        <div className="mx-auto max-w-6xl">
+        <div className="mx-auto max-w-7xl">
           <div className="grid gap-8 sm:grid-cols-3">
             {infoCards.map(({ icon: Icon, title, description }) => (
               <div

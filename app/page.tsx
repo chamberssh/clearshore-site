@@ -135,7 +135,7 @@ export default function Home() {
 
       {/* Who we help */}
       <section className="relative px-4 py-20 sm:px-6">
-        <div className="mx-auto max-w-6xl">
+        <div className="mx-auto max-w-7xl">
           <p className="text-center text-xs font-semibold tracking-[0.25em] text-teal uppercase">
             Support for
           </p>
@@ -163,7 +163,7 @@ export default function Home() {
 
       {/* Services */}
       <section className="relative bg-soft-teal/10 px-4 py-20 sm:px-6">
-        <div className="mx-auto max-w-6xl">
+        <div className="mx-auto max-w-7xl">
           <p className="text-center text-xs font-semibold tracking-[0.25em] text-teal uppercase">
             Services
           </p>

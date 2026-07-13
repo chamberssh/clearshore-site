@@ -95,7 +95,7 @@ export default function Telehealth() {
       </section>
 
       <section className="bg-soft-teal/10 px-4 py-20 sm:px-6">
-        <div className="mx-auto max-w-6xl">
+        <div className="mx-auto max-w-7xl">
           <h2 className="text-center font-heading text-3xl text-teal">
             What you&apos;ll need
           </h2>
