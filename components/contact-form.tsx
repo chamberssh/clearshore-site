@@ -44,8 +44,8 @@ export function ContactForm() {
       <div className="rounded-3xl border border-soft-teal/40 bg-white p-8 text-center shadow-sm">
         <h3 className="font-heading text-2xl text-teal">Thank you</h3>
         <p className="mt-3 text-ink/80">
-          Your message has been received. I&apos;ll be in touch as soon as I
-          can.
+          You&apos;re on the list, and I&apos;ll be in touch directly if you
+          left a message.
         </p>
       </div>
     );
@@ -96,13 +96,13 @@ export function ContactForm() {
 
       <div>
         <label htmlFor="message" className="block text-sm font-medium text-ink">
-          Message
+          Message <span className="font-normal text-ink/60">(optional)</span>
         </label>
         <textarea
           id="message"
           name="message"
           rows={5}
-          required
+          placeholder="Ask a question, or leave this blank to simply join the waitlist."
           className="mt-1.5 w-full rounded-lg border border-soft-teal/50 px-3.5 py-2.5 text-ink outline-none focus:border-teal focus:ring-2 focus:ring-teal/30"
         />
         <p className="mt-2 text-xs text-ink/60">
@@ -119,8 +119,8 @@ export function ContactForm() {
         </p>
       )}
 
-      <Button type="submit" className="w-full" disabled={status === "submitting"}>
-        {status === "submitting" ? "Sending…" : "Send message"}
+      <Button type="submit" className="w-full bg-gold text-ink hover:bg-gold/90" disabled={status === "submitting"}>
+        {status === "submitting" ? "Sending…" : "Send"}
       </Button>
     </form>
   );
