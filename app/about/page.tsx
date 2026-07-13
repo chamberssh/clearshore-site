@@ -10,12 +10,14 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { WaveDivider } from "@/components/wave-divider";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "About Shelley | Clearshore Counselling, Hervey Bay QLD",
   description:
     "Meet Shelley Bentley — former teacher, former Child Safety Officer, and mother — bringing a warm, trauma-informed approach to grief and counselling in Hervey Bay, Queensland.",
-};
+  path: "/about",
+});
 
 const qualifications = [
   {

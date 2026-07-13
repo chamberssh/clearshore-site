@@ -4,12 +4,14 @@ import { HeartHandshake, GraduationCap, Shield } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { WaveDivider } from "@/components/wave-divider";
 import { posts } from "@/lib/blog";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Blog | Clearshore Counselling, Hervey Bay QLD",
   description:
     "Articles on grief and loss, educator wellbeing, and trauma-informed support from Clearshore Counselling, Hervey Bay, Queensland.",
-};
+  path: "/blog",
+});
 
 const upcomingTopics = [
   {

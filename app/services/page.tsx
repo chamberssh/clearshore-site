@@ -13,12 +13,14 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { WaveDivider } from "@/components/wave-divider";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Services | Clearshore Counselling, Hervey Bay QLD",
   description:
     "Grief and loss counselling, educator wellbeing, trauma-informed support, anxiety and life transitions, and family support — in Hervey Bay, Queensland, and by telehealth Australia-wide.",
-};
+  path: "/services",
+});
 
 const otherServices = [
   {

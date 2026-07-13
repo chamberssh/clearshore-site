@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { WaveDivider } from "@/components/wave-divider";
 import { getPostBySlug, posts } from "@/lib/blog";
+import { pageMetadata } from "@/lib/seo";
 
 export const dynamicParams = false;
 
@@ -19,10 +20,11 @@ export async function generateMetadata({
 
   if (!post) return {};
 
-  return {
+  return pageMetadata({
     title: `${post.title} | Clearshore Counselling Blog`,
     description: post.description,
-  };
+    path: `/blog/${post.slug}`,
+  });
 }
 
 export default async function BlogPost({

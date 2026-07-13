@@ -3,12 +3,14 @@ import { Clock, MapPin, Video } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ContactForm } from "@/components/contact-form";
 import { WaveDivider } from "@/components/wave-divider";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Contact | Clearshore Counselling, Hervey Bay QLD",
   description:
     "Get in touch with Clearshore Counselling — in-person in Hervey Bay, Queensland, or by telehealth Australia-wide.",
-};
+  path: "/contact",
+});
 
 const infoCards = [
   {

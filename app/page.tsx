@@ -11,12 +11,13 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { WaveDivider } from "@/components/wave-divider";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Clearshore Counselling | Grief & Trauma Counselling in Hervey Bay, QLD",
   description:
     "Compassionate grief, trauma and wellbeing counselling in Hervey Bay, Queensland, and by telehealth Australia-wide. Grief and loss support, educator wellbeing, and trauma-informed care with Shelley Bentley.",
-};
+});
 
 const whoWeHelp = [
   {

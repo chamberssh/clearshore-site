@@ -4,6 +4,7 @@ import "./globals.css";
 import { cn } from "@/lib/utils";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
+import { pageMetadata } from "@/lib/seo";
 
 const cormorantGaramond = Cormorant_Garamond({
   variable: "--font-cormorant",
@@ -18,9 +19,11 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://clearshorecounselling.com"),
-  title: "Clearshore Counselling | Hervey Bay & Telehealth",
-  description:
-    "Clearshore Counselling offers grief, trauma and wellbeing support in Hervey Bay, Queensland, and via telehealth Australia-wide.",
+  ...pageMetadata({
+    title: "Clearshore Counselling | Hervey Bay & Telehealth",
+    description:
+      "Clearshore Counselling offers grief, trauma and wellbeing support in Hervey Bay, Queensland, and via telehealth Australia-wide.",
+  }),
 };
 
 export default function RootLayout({
