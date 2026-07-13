@@ -56,6 +56,24 @@ const fundingPoints = [
   "Once I'm clinically registered, private health fund rebates will also be available.",
 ];
 
+const sessionFees = [
+  {
+    title: "Individual",
+    duration: "50 minutes",
+    price: "$110",
+  },
+  {
+    title: "Couples",
+    duration: "60 minutes",
+    price: "$160",
+  },
+  {
+    title: "Family",
+    duration: "60 minutes",
+    price: "$170",
+  },
+];
+
 export default function Services() {
   return (
     <>
@@ -151,14 +169,46 @@ export default function Services() {
       </section>
 
       <section className="bg-soft-teal/10 px-4 py-20 sm:px-6">
-        <div className="mx-auto max-w-3xl">
+        <div className="mx-auto max-w-4xl">
           <div className="flex items-center justify-center gap-3">
             <Wallet className="size-6 text-teal" aria-hidden="true" />
             <h2 className="font-heading text-3xl text-teal">
               Fees & funding
             </h2>
           </div>
-          <ul className="mt-8 space-y-4">
+          <p className="mx-auto mt-4 max-w-xl text-center text-ink/80">
+            Indicative session fees below, in line with typical rates for
+            counsellors in regional Queensland. Final pricing will be
+            confirmed closer to opening in April 2027.
+          </p>
+
+          <div className="mt-10 grid gap-6 sm:grid-cols-3">
+            {sessionFees.map(({ title, duration, price }) => (
+              <div
+                key={title}
+                className="rounded-3xl border border-soft-teal/40 bg-white p-7 text-center shadow-sm"
+              >
+                <h3 className="font-heading text-xl text-ink">{title}</h3>
+                <p className="mt-1 text-sm text-ink/60">{duration}</p>
+                <p className="mt-4 font-heading text-3xl text-teal">
+                  {price}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          <div className="mx-auto mt-8 max-w-2xl rounded-3xl border-l-4 border-gold bg-white p-6 text-center sm:p-7">
+            <p className="text-ink/90">
+              <span className="font-medium text-teal">
+                Block bookings:
+              </span>{" "}
+              pre-pay for 5 or more sessions and save 10% off the total.
+              Concession pricing is also available on request for anyone
+              experiencing financial hardship — please just ask.
+            </p>
+          </div>
+
+          <ul className="mx-auto mt-10 max-w-xl space-y-4">
             {fundingPoints.map((point) => (
               <li key={point} className="flex items-start gap-3">
                 <CheckCircle2
