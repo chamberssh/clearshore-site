@@ -22,7 +22,7 @@ export function Header() {
     <header>
       <div className="bg-soft-teal text-ink text-sm text-center py-2 px-4">
         Clearshore Counselling is launching April 2027 —{" "}
-        <Link href="/contact" className="font-medium underline underline-offset-2">
+        <Link href="/contact#waitlist" className="font-medium underline underline-offset-2">
           join the waitlist
         </Link>
       </div>

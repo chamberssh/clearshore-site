@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Clock, MapPin, Video } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ContactForm } from "@/components/contact-form";
+import { WaitlistForm } from "@/components/waitlist-form";
 import { WaveDivider } from "@/components/wave-divider";
 import { pageMetadata } from "@/lib/seo";
 
@@ -90,14 +91,28 @@ export default function Contact() {
         </div>
       </section>
 
+      <section id="waitlist" className="px-4 py-20 sm:px-6">
+        <div className="mx-auto max-w-xl">
+          <h2 className="text-center font-heading text-3xl text-teal">
+            Just want to know when we open?
+          </h2>
+          <p className="mx-auto mt-3 max-w-md text-center text-ink/80">
+            Join the waitlist and I&apos;ll email you as soon as booking
+            begins in April 2027 — no need to write a message.
+          </p>
+          <div className="mt-10">
+            <WaitlistForm />
+          </div>
+        </div>
+      </section>
+
       <section id="contact-form" className="bg-soft-teal/10 px-4 py-20 sm:px-6">
         <div className="mx-auto max-w-xl">
           <h2 className="text-center font-heading text-3xl text-teal">
-            Send a message
+            Have a question, or something to share now?
           </h2>
           <p className="mx-auto mt-3 max-w-md text-center text-ink/80">
-            Share a little about what brings you here, and I&apos;ll be in
-            touch.
+            Send a message and I&apos;ll be in touch directly.
           </p>
           <div className="mt-10">
             <ContactForm />

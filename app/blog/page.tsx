@@ -86,7 +86,7 @@ export default function Blog() {
               </p>
               <div className="mt-6">
                 <Button
-                  render={<Link href="/contact" />}
+                  render={<Link href="/contact#waitlist" />}
                   nativeButton={false}
                   className="bg-gold text-ink hover:bg-gold/90"
                 >
