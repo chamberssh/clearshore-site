@@ -57,7 +57,7 @@ export default function Blog() {
       </section>
 
       {posts.length === 0 ? (
-        <section className="px-4 py-20 sm:px-6">
+        <section className="bg-soft-teal/10 px-4 py-20 sm:px-6">
           <div className="mx-auto max-w-6xl">
             <div className="grid gap-8 sm:grid-cols-3">
               {upcomingTopics.map(({ icon: Icon, title, description }) => (
@@ -97,7 +97,7 @@ export default function Blog() {
           </div>
         </section>
       ) : (
-        <section className="px-4 py-20 sm:px-6">
+        <section className="bg-soft-teal/10 px-4 py-20 sm:px-6">
           <div className="mx-auto grid max-w-5xl gap-8 sm:grid-cols-2">
             {posts.map((post) => (
               <Link

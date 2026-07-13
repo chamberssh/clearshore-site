@@ -83,8 +83,8 @@ export default async function BlogPost({
         <WaveDivider className="absolute inset-x-0 bottom-0 translate-y-px text-white" />
       </section>
 
-      <section className="px-4 py-20 sm:px-6">
-        <div className="mx-auto max-w-2xl">
+      <section className="bg-soft-teal/10 px-4 py-20 sm:px-6">
+        <div className="mx-auto max-w-2xl rounded-3xl border border-soft-teal/40 bg-white p-8 shadow-sm sm:p-12">
           {post.content.split("\n\n").map((paragraph, index) => {
             const heading = paragraph.match(/^\*\*(.+)\*\*$/);
             if (heading) {
