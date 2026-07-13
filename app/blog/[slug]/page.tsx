@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { WaveDivider } from "@/components/wave-divider";
+import { HeroMotif } from "@/components/hero-motif";
 import { getPostBySlug, posts } from "@/lib/blog";
 import { pageMetadata } from "@/lib/seo";
 
@@ -40,7 +41,8 @@ export default async function BlogPost({
   return (
     <>
       <section className="relative overflow-hidden bg-[linear-gradient(to_bottom,color-mix(in_srgb,var(--color-teal)_88%,white)_0%,var(--color-teal)_65%)] px-4 py-20 text-center text-white sm:px-6 sm:py-28">
-        <div className="mx-auto max-w-2xl">
+        <HeroMotif className="absolute inset-0 h-full w-full" />
+        <div className="relative z-10 mx-auto max-w-2xl">
           <p className="text-xs font-semibold tracking-[0.25em] text-gold uppercase">
             {post.category}
           </p>
@@ -53,11 +55,24 @@ export default async function BlogPost({
 
       <section className="px-4 py-20 sm:px-6">
         <div className="mx-auto max-w-2xl">
-          {post.content.split("\n\n").map((paragraph, index) => (
-            <p key={index} className="mt-4 text-ink/90 first:mt-0">
-              {paragraph}
-            </p>
-          ))}
+          {post.content.split("\n\n").map((paragraph, index) => {
+            const heading = paragraph.match(/^\*\*(.+)\*\*$/);
+            if (heading) {
+              return (
+                <h2
+                  key={index}
+                  className="mt-10 font-heading text-2xl text-teal first:mt-0"
+                >
+                  {heading[1]}
+                </h2>
+              );
+            }
+            return (
+              <p key={index} className="mt-4 text-ink/90 first:mt-0">
+                {paragraph}
+              </p>
+            );
+          })}
         </div>
       </section>
     </>

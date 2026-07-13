@@ -30,7 +30,29 @@ const qualifications = [
   },
   {
     icon: ShieldCheck,
-    text: "Working toward ACA / PACFA registration",
+    text: (
+      <>
+        Working toward{" "}
+        <a
+          href="https://theaca.net.au/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="underline underline-offset-2 hover:text-teal"
+        >
+          ACA
+        </a>{" "}
+        /{" "}
+        <a
+          href="https://www.pacfa.org.au/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="underline underline-offset-2 hover:text-teal"
+        >
+          PACFA
+        </a>{" "}
+        registration
+      </>
+    ),
   },
   {
     icon: School,
@@ -156,8 +178,8 @@ export default function About() {
             Qualifications & training
           </h2>
           <ul className="mt-10 grid gap-6 sm:grid-cols-2">
-            {qualifications.map(({ icon: Icon, text }) => (
-              <li key={text} className="flex items-start gap-3">
+            {qualifications.map(({ icon: Icon, text }, index) => (
+              <li key={index} className="flex items-start gap-3">
                 <span className="mt-0.5 flex size-9 shrink-0 items-center justify-center rounded-full bg-teal text-white">
                   <Icon className="size-4" aria-hidden="true" />
                 </span>

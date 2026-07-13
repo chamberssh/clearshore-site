@@ -3,13 +3,14 @@ import Link from "next/link";
 import { HeartHandshake, GraduationCap, Shield } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { WaveDivider } from "@/components/wave-divider";
+import { HeroMotif } from "@/components/hero-motif";
 import { posts } from "@/lib/blog";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
   title: "Blog | Clearshore Counselling, Hervey Bay QLD",
   description:
-    "Articles on grief and loss, educator wellbeing, and trauma-informed support from Clearshore Counselling, Hervey Bay, Queensland.",
+    "Articles on grief and loss, educator wellbeing, trauma-informed support, anxiety, parenting, and telehealth counselling from Clearshore Counselling, Hervey Bay, Queensland.",
   path: "/blog",
 });
 
@@ -38,17 +39,18 @@ export default function Blog() {
   return (
     <>
       <section className="relative overflow-hidden bg-[linear-gradient(to_bottom,color-mix(in_srgb,var(--color-teal)_88%,white)_0%,var(--color-teal)_65%)] px-4 py-20 text-center text-white sm:px-6 sm:py-28">
-        <div className="mx-auto max-w-2xl">
+        <HeroMotif className="absolute inset-0 h-full w-full" />
+        <div className="relative z-10 mx-auto max-w-2xl">
           <p className="text-xs font-semibold tracking-[0.25em] text-gold uppercase">
             Blog
           </p>
           <h1 className="mt-5 font-heading text-4xl leading-tight sm:text-5xl">
-            Writing on grief, teaching, and trauma
+            Writing on grief, family, and life&apos;s hardest seasons
           </h1>
           <p className="mt-6 text-lg text-white/90">
-            Articles are coming as Clearshore Counselling opens in April
-            2027 — in the meantime, here&apos;s what I&apos;ll be writing
-            about.
+            {posts.length === 0
+              ? "Articles are coming as Clearshore Counselling opens in April 2027 — in the meantime, here's what I'll be writing about."
+              : "Gentle, honest writing while Clearshore Counselling gets ready to open in April 2027."}
           </p>
         </div>
         <WaveDivider className="absolute inset-x-0 bottom-0 translate-y-px text-white" />

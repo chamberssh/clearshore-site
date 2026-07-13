@@ -1,5 +1,21 @@
 import Image from "next/image";
 import Link from "next/link";
+import { FacebookIcon, InstagramIcon, LinkedinIcon, XIcon } from "@/components/social-icons";
+
+const socialLinks = [
+  {
+    name: "Facebook",
+    href: "https://facebook.com/profile.php?id=61589911111622",
+    icon: FacebookIcon,
+  },
+  { name: "Instagram", href: "#", icon: InstagramIcon },
+  {
+    name: "LinkedIn",
+    href: "https://www.linkedin.com/company/117374290/",
+    icon: LinkedinIcon,
+  },
+  { name: "X", href: "#", icon: XIcon },
+];
 
 export function Footer() {
   return (
@@ -13,6 +29,20 @@ export function Footer() {
           <p className="mt-3 text-sm text-white/80">
             A calm, grounded space for grief, trauma and life&apos;s hardest seasons.
           </p>
+          <div className="mt-4 flex items-center gap-4">
+            {socialLinks.map(({ name, href, icon: Icon }) => (
+              <a
+                key={name}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={name}
+                className="text-white/70 hover:text-soft-teal"
+              >
+                <Icon className="size-5" />
+              </a>
+            ))}
+          </div>
         </div>
 
         <div>
@@ -55,7 +85,10 @@ export function Footer() {
       </div>
 
       <div className="border-t border-white/10 px-4 py-4 text-center text-xs text-white/60 sm:px-6">
-        &copy; {new Date().getFullYear()} Clearshore Counselling. Hervey Bay, QLD.
+        &copy; {new Date().getFullYear()} Clearshore Counselling. Hervey Bay, QLD.{" "}
+        <Link href="/privacy" className="underline underline-offset-2 hover:text-soft-teal">
+          Privacy policy
+        </Link>
       </div>
     </footer>
   );
