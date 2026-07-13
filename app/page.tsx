@@ -120,6 +120,7 @@ export default function Home() {
           <div className="mt-10">
             <Button
               render={<Link href="/contact" />}
+              nativeButton={false}
               size="lg"
               className="bg-gold text-ink hover:bg-gold/90"
             >
@@ -222,6 +223,7 @@ export default function Home() {
             <div className="mt-8">
               <Button
                 render={<Link href="/about" />}
+                nativeButton={false}
                 variant="outline"
                 className="border-teal text-teal hover:bg-teal hover:text-white"
               >

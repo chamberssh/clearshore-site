@@ -58,6 +58,7 @@ export function Header() {
           <div className="hidden sm:block">
             <Button
               render={<Link href="/contact" />}
+              nativeButton={false}
               className="bg-gold text-ink hover:bg-gold/90"
             >
               Book a session
@@ -95,6 +96,7 @@ export function Header() {
           <li className="pt-2">
             <Button
               render={<Link href="/contact" />}
+              nativeButton={false}
               className="w-full bg-gold text-ink hover:bg-gold/90"
               onClick={() => setMobileOpen(false)}
             >

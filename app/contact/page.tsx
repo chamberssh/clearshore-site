@@ -78,6 +78,7 @@ export default function Contact() {
             <div className="mt-6">
               <Button
                 render={<a href="#contact-form" />}
+                nativeButton={false}
                 className="bg-gold text-ink hover:bg-gold/90"
               >
                 Book a session

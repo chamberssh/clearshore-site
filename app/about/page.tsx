@@ -179,6 +179,7 @@ export default function About() {
           <div className="mt-8">
             <Button
               render={<Link href="/contact" />}
+              nativeButton={false}
               size="lg"
               className="bg-gold text-ink hover:bg-gold/90"
             >
