@@ -30,7 +30,7 @@ export function Header() {
       </div>
 
       <div className="bg-teal text-white">
-        <nav className="mx-auto flex max-w-6xl items-center justify-between px-4 py-1.5 sm:px-6">
+        <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-1.5 sm:px-8">
           <Link href="/" className="flex items-center gap-3">
             <Image
               src="/logo.png"
@@ -45,7 +45,7 @@ export function Header() {
             </span>
           </Link>
 
-          <ul className="hidden items-center gap-6 lg:flex">
+          <ul className="hidden items-center gap-8 lg:flex xl:gap-10">
             {navLinks.map((link) => (
               <li key={link.href}>
                 <Link

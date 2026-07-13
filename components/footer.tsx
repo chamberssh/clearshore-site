@@ -20,8 +20,8 @@ const socialLinks = [
 export function Footer() {
   return (
     <footer className="bg-teal text-white">
-      <div className="mx-auto grid max-w-6xl gap-8 px-4 py-12 sm:px-6 sm:grid-cols-3">
-        <div>
+      <div className="mx-auto flex max-w-7xl flex-col gap-10 px-6 py-14 sm:flex-row sm:justify-between sm:px-8 lg:py-16">
+        <div className="sm:max-w-xs">
           <div className="flex items-center gap-3">
             <Image src="/logo.png" alt="Clearshore Counselling logo" width={36} height={36} />
             <span className="font-heading text-lg">Clearshore Counselling</span>
@@ -94,7 +94,7 @@ export function Footer() {
         </div>
       </div>
 
-      <div className="border-t border-white/10 px-4 py-4 text-center text-xs text-white/60 sm:px-6">
+      <div className="border-t border-white/10 px-6 py-4 text-center text-xs text-white/60 sm:px-8">
         &copy; {new Date().getFullYear()} Clearshore Counselling. Hervey Bay, QLD.{" "}
         <Link href="/privacy" className="underline underline-offset-2 hover:text-soft-teal">
           Privacy policy
