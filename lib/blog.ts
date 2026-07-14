@@ -180,6 +180,122 @@ If you’ve been putting off reaching out because in-person isn’t realistic fo
 
 Secure telehealth sessions will be available Australia-wide alongside in-person sessions in Hervey Bay, once Clearshore Counselling opens in April 2027. Join the waitlist if you’d like to know as soon as booking begins.`,
   },
+  {
+    slug: "when-grief-doesnt-look-like-sadness",
+    title: "When Grief Doesn’t Look Like Sadness",
+    description:
+      "Grief can show up as anger, numbness, or nothing at all. A grief counsellor in Hervey Bay on why loss doesn’t always look the way we expect.",
+    category: "Grief & Loss",
+    date: "2026-07-14",
+    content: `People often come to grief expecting tears, and when tears don’t come, or when what comes instead is anger, or numbness, or a strange flatness where sadness “should” be, they quietly start to worry something is wrong with them. I want to say clearly: there is nothing wrong with you. Grief rarely follows the shape we expect it to.
+
+I’ve sat with grief in many forms, in families I supported through child safety work, in the Hervey Bay grief-and-loss community through Walk to Remember, and in my own life, as a mother who has lost a child. I can tell you honestly that some of my hardest days weren’t sad days at all. They were irritable days, or exhausted days, or days where I felt strangely, guiltily, nothing.
+
+**The faces grief wears**
+
+Grief can look like snapping at people you love over something small. It can look like forgetting words mid-sentence, or losing hours to scrolling because sitting with your own thoughts feels unbearable. It can look like relief, especially after a long illness, and then guilt about that relief. It can look like functioning perfectly well at work and falling apart the moment you’re alone in the car. None of these are grief done wrong. They’re grief finding whatever door is open.
+
+**Why anger is so often misunderstood**
+
+Anger is one of the least talked-about faces of grief, and one of the most common. Anger at the unfairness of it. Anger at people who still have what you’ve lost. Sometimes anger at the person who died, which can feel like the most forbidden feeling of all. I want you to know that feeling is allowed here. It doesn’t mean you loved them any less. It often means the opposite.
+
+**Numbness isn’t a failure to feel**
+
+Sometimes grief doesn’t arrive as a feeling at all. It arrives as fog, a kind of protective distance that lets you keep functioning when the full weight of it would otherwise be too much all at once. If that’s where you are, I don’t think you need to force the feelings forward before you’re ready. Numbness is often the mind buying you time, not evidence that you’re not grieving properly.
+
+**You don’t need to perform grief for anyone**
+
+If people around you seem confused that you’re not “more upset,” or unsettled that you laughed today, that says more about our discomfort with grief as a culture than it does about how you’re coping. You don’t owe anyone a particular expression of loss. You’re allowed to grieve in whatever shape it actually takes for you.
+
+If you’re carrying a loss and it doesn’t look the way you expected, in person in Hervey Bay or by telehealth anywhere in Australia, Clearshore Counselling opens in April 2027. You’re welcome to join the waitlist in the meantime, and I’ll be in touch when booking begins.`,
+  },
+  {
+    slug: "returning-to-the-classroom-after-a-loss-of-your-own",
+    title: "Returning to the Classroom After a Loss of Your Own",
+    description:
+      "Walking back into a classroom while you’re grieving is its own particular kind of hard. A former teacher and grief counsellor on going back before you feel ready.",
+    category: "Educator Wellbeing",
+    date: "2026-07-14",
+    content: `There’s a particular kind of hard that comes with walking back into a classroom while you’re still grieving. I know it from two directions: as a former teacher who has stood at the front of a room while carrying something heavy, and as a mother who has lost a child. Few workplaces ask what teaching asks, that you be fully present, patient, and “on” for thirty children, the moment you walk through the door, regardless of what you’re carrying underneath.
+
+Most other jobs let you close an office door for a moment, or step away from your desk to collect yourself. Teaching rarely offers that. The bell goes, the children arrive, and you’re expected to meet them exactly as they need you, whatever kind of morning you’ve had, whatever anniversary it happens to be, whatever news you received the night before.
+
+**Going back before you feel ready**
+
+Compassionate leave is rarely long enough, and even when it is, most teachers go back to the classroom well before grief has settled into anything manageable. There’s pressure, spoken or not, to seem recovered, to reassure colleagues and students that you’re okay, because a grieving teacher can unsettle a room in a way that’s hard to sit with for everyone involved, including you.
+
+I want to say plainly: going back doesn’t mean you have to be finished grieving, or even close to it. It’s entirely possible to be functioning well in front of a class and falling apart the moment the door closes behind the last student. That’s not failure. That’s just what carrying grief through a demanding job looks like.
+
+**The particular weight of other people’s reactions**
+
+One thing I didn’t expect, in my own experience of loss, was how much energy it takes to manage everyone else’s discomfort. Colleagues who don’t know what to say. Well-meaning parents who ask too much, or too little. Students who somehow sense something is different, and ask disarmingly direct questions in the middle of a lesson. Navigating all of that while grieving is exhausting in a way that’s hard to explain to anyone who hasn’t stood at the front of a room while doing it.
+
+**What actually helps**
+
+There’s no shortcut through this, but there are things that help: permission to have an off day without apologising for it, a plan for what to say to students if you need one, and somewhere outside the staffroom to put down the parts of grief that don’t belong at work. That last one matters more than people realise. Grief needs somewhere to go, and “holding it together for the classroom” can’t be the only place it lives.
+
+If you’re a teacher or school staff member grieving while trying to keep showing up for your students, you don’t have to carry it without support. Educator wellbeing support, alongside grief and loss counselling, will be part of what I offer in person in Hervey Bay and by telehealth Australia-wide once Clearshore Counselling opens in April 2027. Join the waitlist if you’d like to know when booking begins.`,
+  },
+  {
+    slug: "talking-to-children-about-death",
+    title: "Talking to Children About Death, Without the Right Words",
+    description:
+      "You don’t need the perfect script to talk to your children about death or loss. Gentle, honest guidance from a mother of four and grief counsellor in Hervey Bay.",
+    category: "Family & Parenting Support",
+    date: "2026-07-14",
+    content: `One of the questions I’m asked most often, by parents who are themselves grieving or supporting a grieving child, is some version of “what do I even say?” I understand the fear underneath that question. It’s the fear of getting it wrong, of causing more pain, of saying the one thing that will damage a child who’s already hurting. I want to gently take some of that pressure off you. There is no perfect script. There is only showing up, honestly, alongside your child.
+
+As a mother of four, and a mother who has lost a child, I’ve had to find words for death with my own children more than once. I can tell you from that experience, not just from training, that children don’t need the “right” words from you nearly as much as they need your honesty and your steadiness.
+
+**Simple, honest language holds up best**
+
+It’s tempting to soften death with phrases like “gone to sleep” or “passed away” or “we lost them,” especially with younger children. I’d gently encourage you to use plain, direct words instead: died, dead, death. Children are literal, and softer language can create confusion or fear, of sleep, of being “lost” themselves. Plain words, said gently, are kinder than they sound.
+
+**You don’t have to have all the answers**
+
+Children ask hard questions, often at the most unexpected moments, in the car, at the dinner table, halfway through getting dressed for school. “Where do they go?” “Will you die too?” “Will I die?” You don’t need a complete, certain answer to every one of these. It’s alright to say “I don’t know for certain, but here’s what I believe,” or simply “that’s a really big question, and I’m glad you asked me.” What matters most is that they learn these questions are safe to bring to you.
+
+**Grief in children doesn’t look like grief in adults**
+
+Children often grieve in bursts rather than in one continuous wave. They might sob for ten minutes and then ask to go play. That’s not a sign they don’t understand, or that they’re “over it.” Children’s minds protect them by only taking in as much as they can hold at once, then returning to it again and again over months and years, often revisiting a loss in new ways as they grow and understand more.
+
+**Letting them see you grieve, gently**
+
+You don’t have to hide your own grief from your children to protect them. Children learn how to grieve by watching the adults around them do it. Letting them see you cry, and then see you recover enough to make dinner, teaches them something valuable: that big feelings are survivable, and that grief and ordinary life can sit alongside each other.
+
+If you’re supporting a child through loss, or trying to find words for a loss of your own within your family, you don’t have to work it out alone. Family and parenting support, alongside grief and loss counselling, will be available in person in Hervey Bay and by telehealth Australia-wide once Clearshore Counselling opens in April 2027. The waitlist is open if you’d like to know when booking begins.`,
+  },
+  {
+    slug: "the-anxiety-of-waiting-for-news",
+    title: "The Anxiety of Waiting for News",
+    description:
+      "Test results, a job outcome, a phone call that hasn’t come yet — waiting can be its own kind of anxiety. Gentle support through uncertainty, from Hervey Bay, Queensland.",
+    category: "Anxiety & Life Transitions",
+    date: "2026-07-14",
+    content: `There’s a specific kind of anxiety that doesn’t get talked about enough: the anxiety of waiting. Waiting for test results. Waiting to hear back after a job interview. Waiting for a phone call about a loved one. Waiting to find out if a relationship is ending or mending. Nothing has happened yet, and that’s exactly the problem. There’s nothing to respond to, nothing to fix, nothing to do except sit inside the not-knowing.
+
+I’ve stood in that particular kind of waiting more than once in my own life, and I’ve sat alongside families waiting for news in some of the hardest moments of their lives, during my years in child safety work. I can tell you honestly that waiting is its own distinct weight, different from grief, different from ordinary worry, and it deserves to be taken seriously rather than brushed off with “try not to think about it.”
+
+**Why waiting feels so much worse than bad news itself**
+
+Once we know something, even something hard, we can begin to respond to it. We can problem-solve, seek support, adjust our plans. Uncertainty takes that away. Your mind, unable to prepare for one specific outcome, often tries to prepare for all of them at once, which is exhausting, and rarely as helpful as it feels like it should be.
+
+**“Try not to think about it” rarely works**
+
+Well-meaning people often suggest distraction, and sometimes it helps for an hour or two. But telling an anxious mind not to think about something is a bit like telling water not to be wet. A more useful approach, in my experience, isn’t fighting the thoughts, it’s building small, steady structures around your days so the waiting has somewhere to sit that isn’t consuming every hour.
+
+**What tends to help while you wait**
+
+Naming the fear out loud, to someone who won’t rush to fix it or minimise it, often loosens its grip more than trying to think your way past it. So can small, ordinary anchors through the day, a walk, a regular meal time, a call with someone steady, not because they solve anything, but because they remind your nervous system that not every moment is the moment the news arrives.
+
+It also helps to remember that however the news lands, you won’t be facing it for the first time, alone, with no resources. You’ll be facing it as someone who has already survived a great deal of hard waiting to get here.
+
+**You don’t need a crisis to deserve support**
+
+You don’t need to wait until the news arrives, or until things feel unbearable, to reach out. The waiting itself is reason enough. If you’re in the middle of an uncertain season and the not-knowing is wearing you down, that’s exactly the kind of thing counselling can hold with you.
+
+Support for anxiety and life transitions will be available in person in Hervey Bay and by telehealth Australia-wide once Clearshore Counselling opens in April 2027. Join the waitlist if you’d like to hear when booking begins.`,
+  },
 ];
 
 export function getPostBySlug(slug: string) {
