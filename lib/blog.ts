@@ -296,6 +296,182 @@ You don’t need to wait until the news arrives, or until things feel unbearable
 
 Support for anxiety and life transitions will be available in person in Hervey Bay and by telehealth Australia-wide once Clearshore Counselling opens in April 2027. Join the waitlist if you’d like to hear when booking begins.`,
   },
+  {
+    slug: "why-just-relax-doesnt-work",
+    title: "Why “Just Relax” Doesn’t Work",
+    description:
+      "When your nervous system is in survival mode, willpower isn’t the answer. A trauma-informed look at why calm has to be built, not forced.",
+    category: "Trauma-Informed Support",
+    date: "2026-07-14",
+    content: `If “just relax” or “try not to worry” actually worked, none of us would need support. I say this gently, because I know how often people carrying trauma are given advice like this, usually by people who mean well, and how often it leaves them feeling more broken rather than less, when calm still won’t come.
+
+In my years as a Child Safety Officer, I sat with people whose bodies were, quite reasonably, still braced for danger that had already passed. I learned there that trauma isn’t primarily a thinking problem. It’s a nervous system problem, and no amount of logic fully reaches a nervous system that’s convinced, at a level below conscious thought, that it still needs to protect you.
+
+**Survival mode doesn’t check the calendar**
+
+A nervous system shaped by trauma doesn’t know the danger is over just because time has passed. It keeps scanning for threat long after the original threat is gone, which is why a slammed door, a certain tone of voice, or an ordinary disagreement can trigger a reaction that feels wildly out of proportion to what’s actually happening in the room. That reaction isn’t an overreaction. It’s an old, well-practised survival response, doing exactly what it learned to do.
+
+**Why willpower isn’t the missing ingredient**
+
+I meet people who are furious with themselves for “not being able to just calm down,” as though calm were a switch they’re failing to flip. It isn’t a switch. It’s closer to a skill, or more accurately a felt sense of safety, that has to be rebuilt slowly, through repeated experience, not decided into existence through sheer effort. You cannot think your way into safety your body doesn’t yet believe in.
+
+**What actually helps a nervous system settle**
+
+Safety is rebuilt gradually, through predictability, through a relationship where nothing is forced, and through small moments where the body notices that this time, nothing bad happened. That’s a large part of what trauma-informed counselling is: not analysing the past in forensic detail, but offering enough steady, repeated safety that a nervous system slowly, cautiously, starts to believe it.
+
+**You’re not failing at healing**
+
+If you’ve been told to relax, to let it go, to move on, and found that none of it worked, please hear this: that isn’t a personal failing. It means the advice was aimed at the wrong part of the problem. Your body isn’t being difficult. It’s doing exactly what it learned, a long time ago, in order to keep you safe.
+
+Trauma-informed support, at whatever pace feels right for you, will be available in person in Hervey Bay and by telehealth Australia-wide once Clearshore Counselling opens in April 2027. Join the waitlist if you’d like to know when booking begins.`,
+  },
+  {
+    slug: "is-telehealth-counselling-right-for-me",
+    title: "Is Telehealth Counselling Right for Me? A Few Honest Questions to Ask Yourself",
+    description:
+      "Not sure whether online counselling would suit you? An honest, practical guide to deciding between telehealth and in-person sessions.",
+    category: "Telehealth",
+    date: "2026-07-14",
+    content: `I get asked, gently and sometimes anxiously, whether telehealth counselling is “as good as” sitting in a room together. I’d rather answer that honestly than reassure you automatically, because the true answer is: it depends on you, and there’s no wrong choice here. What follows are the questions I’d actually ask myself, if I were deciding.
+
+**Do you have a private space, and a working connection?**
+
+This is the practical starting point. Telehealth needs a space where you won’t be interrupted or overheard, whether that’s a bedroom with a closed door, a parked car, or a quiet corner of a workplace. It also needs a reasonably stable internet connection. If either of those is genuinely hard to come by right now, in-person may suit you better, at least for this season.
+
+**Does travel create a barrier for you, practically or emotionally?**
+
+If you’re in regional Queensland with no local counsellor nearby, caring for someone and unable to easily leave the house, living with chronic illness or limited mobility, or simply stretched thin by work and family, telehealth removes a barrier that would otherwise stop you from getting support at all. For a lot of people, telehealth isn’t a compromise. It’s what makes counselling possible in the first place.
+
+**Does being in your own space help you open up, or make it harder?**
+
+Some people find it easier to be honest from their own couch, in their own clothes, without the small performance that can come with walking into an office. Others find home too full of distractions, or too tied to the very stress they want space from. Neither response is wrong. It’s worth being honest with yourself about which one sounds more like you.
+
+**Would you feel more supported sitting across from someone in person?**
+
+For some people, especially early in a hard season, there’s real comfort in being in the same room as another person. If that’s you, that’s a completely valid preference, and it doesn’t mean telehealth wouldn’t work later, once some trust has been built, or during a season when getting to Hervey Bay isn’t realistic.
+
+**You don’t have to choose forever**
+
+This isn’t a permanent decision. Many people move between telehealth and in-person sessions depending on what a season of life calls for, work travel, illness, simply wanting a change. Whichever you choose to start with, the care, confidentiality, and pacing stay exactly the same.
+
+Both in-person sessions in Hervey Bay and secure telehealth sessions Australia-wide will be available once Clearshore Counselling opens in April 2027. Join the waitlist if you’d like to know when booking begins.`,
+  },
+  {
+    slug: "grief-on-the-anniversaries",
+    title: "Grief on the Anniversaries: Birthdays, Due Dates, and the Days No One Else Remembers",
+    description:
+      "Anniversary grief can hit harder than the loss itself once felt. A grief counsellor in Hervey Bay on carrying the dates other people forget.",
+    category: "Grief & Loss",
+    date: "2026-07-14",
+    content: `There’s a particular kind of loneliness that comes with anniversary grief, the birthday that would have been, the due date that never arrived, the date on the calendar that means everything to you and nothing, visibly, to almost anyone else. I know this loneliness personally, as a mother who has lost a child, and I know it from the families I’ve walked alongside through Hervey Bay’s Walk to Remember, many of whom carry exactly this kind of date every single year.
+
+What surprises people most, in my experience, isn’t that these days are hard. It’s how hard they can be, sometimes harder than the early days of the loss itself, and how unprepared that leaves you, especially once other people seem to have quietly stopped expecting you to still be grieving.
+
+**Why anniversaries hit the way they do**
+
+Grief has a way of gathering itself around certain dates, even when you haven’t consciously been thinking about them in the lead-up. You might notice you’ve felt flat, snappish, or unsettled for days before you’ve even registered why, and then the date arrives and everything makes sudden, aching sense. This isn’t your grief “relapsing.” It’s simply grief responding to a date that matters, exactly as it should.
+
+**The particular ache of invisible dates**
+
+Some anniversaries are visible to the people around you, a death, a diagnosis. Others are almost entirely invisible: a due date for a baby who never arrived, the day you found out, the date a marriage ended quietly rather than dramatically. These invisible anniversaries can be some of the loneliest, because you’re carrying real weight on a day that looks, to everyone else, like any other Tuesday.
+
+**You’re allowed to mark the day, however you need to**
+
+There’s no correct way to spend an anniversary. Some people need to mark it deliberately, lighting a candle, visiting a place, saying a name out loud. Others need to get through it as quietly and ordinarily as possible, and that’s just as valid. What matters is that you get to choose, rather than defaulting to whatever you think you’re supposed to do.
+
+**You don’t have to carry these dates alone**
+
+If you have dates like this on your calendar, ones that quietly gather weight as they approach each year, you don’t need to manage them silently, or explain their significance to people who won’t understand. Having somewhere steady to bring that grief, before, during, or after the date itself, can make a real difference to how it’s carried.
+
+If you’d like support around grief, including the anniversaries that matter most to you, Clearshore Counselling opens in April 2027, in person in Hervey Bay and by telehealth Australia-wide. Join the waitlist in the meantime, and I’ll be in touch when booking begins.`,
+  },
+  {
+    slug: "why-teachers-wait-until-the-holidays-to-fall-apart",
+    title: "Why So Many Teachers Wait Until the Holidays to Fall Apart",
+    description:
+      "Holding it together all term, then crashing the moment the holidays start, is a pattern many teachers know well. A former teacher on why, and what helps.",
+    category: "Educator Wellbeing",
+    date: "2026-07-14",
+    content: `There’s a pattern I recognise instantly, because I lived it myself as a teacher: holding everything together, term after term, and then falling apart the moment the school holidays finally begin. Friends and family sometimes find it confusing, that you seemed fine right up until the last day, and then suddenly weren’t. I want to explain why that happens, because it isn’t a mystery, and it isn’t a weakness.
+
+**Your body doesn’t let go until it’s safe to**
+
+When you’re responsible for a room full of children every single day, your body largely doesn’t have the option of falling apart. There’s a lesson to run, a duty to cover, a parent meeting to get through. So your nervous system does something remarkably practical: it holds the line until the demand actually stops, and only then does it let the exhaustion, or the tears, or the flu you’ve been fighting off for weeks, finally arrive.
+
+**Why this looks like collapse, not relief**
+
+The first few days of holidays are often not restful at all. They can look like getting sick, sleeping far more than usual, feeling flat or tearful for no obvious reason, or simply lying on the couch unable to do any of the things you’d planned. That’s not you wasting your break. That’s the cost of the term finally being allowed to surface, now that it’s safe to.
+
+**The trouble with a two-week reset**
+
+The difficulty is that school holidays are rarely long enough to fully recover from a full term of sustained emotional labour, especially if the term was a particularly hard one. Many teachers spend the first week recovering and the second bracing for the next term, without ever really landing in genuine rest in between. Over years, that gap adds up quietly, into exactly the kind of burnout that can feel sudden, even though it built for a long time.
+
+**What might actually help**
+
+Recovery tends to go better when it isn’t left entirely to the holidays. Small, regular pauses through the term, even five minutes here and there, matter more than people expect, not because they replace proper rest, but because they stop the gap between “fine” and “collapsing” from growing quite so wide. So does having somewhere, outside the staffroom, to put down the parts of the term you’re still carrying, before the holidays arrive and everything surfaces at once.
+
+**You’re not the only one who does this**
+
+If this pattern sounds familiar, holding together all term and crashing the moment it ends, please know you’re not alone in it, and it’s not a sign you’re not cut out for the job. It’s a sign of how much the job actually asks of you, week after week, with very little space built in to let it go.
+
+Educator and teacher wellbeing support will be part of what I offer, in person in Hervey Bay and by telehealth Australia-wide, once Clearshore Counselling opens in April 2027. Join the waitlist if you’d like to know when booking begins.`,
+  },
+  {
+    slug: "you-dont-have-to-tell-me-everything",
+    title: "You Don’t Have to Tell Me Everything",
+    description:
+      "Trauma-informed counselling means you set the pace. A Hervey Bay counsellor on why you never have to share more than you’re ready to.",
+    category: "Trauma-Informed Support",
+    date: "2026-07-14",
+    content: `One of the most common fears I hear, from people considering counselling for the first time, is some version of “I don’t think I could talk about all of it.” I want to say this as plainly as I can: you don’t have to. Not on the first session, not on the tenth, and not ever, if that’s not what you need. Trauma-informed counselling was never meant to require a full confession before it can help.
+
+I learned this in my years as a Child Safety Officer, sitting with people who had lived through enormous, complicated things. The families who opened up weren’t the ones I pushed hardest. They were the ones who felt, over time, that they were genuinely allowed to say only what they were ready to say, and that nothing bad would happen if they didn’t say more.
+
+**Why the pressure to “tell the whole story” can backfire**
+
+There’s a common idea that healing requires recounting every detail of what happened, in order, in full. In practice, that pressure often does the opposite of what’s intended. It can retraumatise rather than release, and it teaches a nervous system that this room, too, is a place where you’ll be pushed past what feels safe. Real trauma-informed work doesn’t need the whole story. It needs enough safety that a story, or none at all, can unfold naturally, in its own time.
+
+**What I actually need from you**
+
+Very little, honestly. I don’t need dates, details, or a tidy narrative. I need you to arrive, however that looks on a given day, whether that’s ready to talk, or only ready to sit quietly for a while. Some of the most important work happens in sessions where very little is “said” directly, where the real progress is simply a nervous system learning, slowly, that this space is safe.
+
+**You are always the one who decides**
+
+You get to decide what you name, what you leave unnamed, and when, if ever, that changes. There’s no wrong pace, and no story I need you to reach by a particular date. If something feels too much to say aloud this week, it can wait, indefinitely if it needs to, without that meaning anything about how “well” you’re doing.
+
+**Safety comes before disclosure, always**
+
+If you’ve avoided counselling because you assumed you’d be expected to relive everything in detail, I hope this eases that worry a little. The goal was never to extract your story. It’s to build a room steady enough that, if and when you choose to bring any part of it, you’ll be met with steadiness rather than pressure.
+
+Trauma-informed support, entirely at your own pace, will be available in person in Hervey Bay and by telehealth Australia-wide once Clearshore Counselling opens in April 2027. Join the waitlist if you’d like to know when booking begins.`,
+  },
+  {
+    slug: "telehealth-for-regional-queensland",
+    title: "Counselling From Regional Queensland: Why Telehealth Matters Outside the Cities",
+    description:
+      "For many in regional Queensland, telehealth isn’t a second choice, it’s the only realistic way to access counselling. A Hervey Bay perspective.",
+    category: "Telehealth",
+    date: "2026-07-14",
+    content: `Access to counselling shouldn’t depend on your postcode, but for a lot of regional Queensland, it quietly does. If you live outside a major centre, you likely already know the reality: the nearest counsellor might be an hour or more away, booked out for months, or simply not taking new clients at all. Telehealth exists to change that equation, and I think it matters enormously here in Hervey Bay and across regional Queensland more broadly.
+
+**The maths of getting to an appointment**
+
+For someone in a capital city, a counselling appointment might mean a short drive or a bus trip. For a lot of people in regional Queensland, it can mean hours of driving, a full day taken off work, fuel costs that add up quickly, or simply no realistic way to attend during business hours at all, especially without reliable transport or someone to mind the kids. Telehealth removes almost all of that. The appointment comes to you, wherever “you” happens to be that week.
+
+**It’s not a lesser version of care**
+
+I want to be honest about something: telehealth isn’t a workaround or a compromise you settle for because nothing better is available. The quality of the conversation, the confidentiality, the pacing, all of it carries across a screen exactly as it does in a room. What changes is the logistics, not the care underneath it. Some of the most open, honest sessions happen precisely because someone is sitting in their own familiar space rather than an unfamiliar office.
+
+**Who this tends to matter most for**
+
+Farmers and rural workers whose hours don’t match a typical clinic day. Parents without easy childcare for an appointment across town. People managing chronic illness or mobility limitations that make travel genuinely difficult. Anyone simply living too far from Hervey Bay, or any regional centre, to make in-person sessions realistic on an ongoing basis. For all of these, telehealth isn’t a nice-to-have. It’s what makes ongoing support possible at all.
+
+**Grief and burnout don’t wait for better infrastructure**
+
+Loss, trauma, burnout, and anxiety show up in regional Queensland exactly as often as anywhere else, arguably with fewer local supports to catch people when they do. Telehealth means the distance between you and the nearest town with a counsellor no longer has to be the deciding factor in whether you get support at all.
+
+If you’re in regional Queensland and getting to a counsellor in person has always felt out of reach, I’d gently say that’s exactly the gap telehealth is built to close. Secure telehealth sessions will be available Australia-wide, alongside in-person sessions in Hervey Bay, once Clearshore Counselling opens in April 2027. Join the waitlist if you’d like to know when booking begins.`,
+  },
 ];
 
 export function getPostBySlug(slug: string) {
