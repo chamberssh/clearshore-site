@@ -13,6 +13,7 @@ const navLinks = [
   { href: "/services", label: "Services" },
   { href: "/telehealth", label: "Telehealth" },
   { href: "/faq", label: "FAQ" },
+  { href: "/resources", label: "Resources" },
   { href: "/blog", label: "Blog" },
   { href: "/contact", label: "Contact" },
 ];

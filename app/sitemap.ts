@@ -4,7 +4,7 @@ import { posts } from "@/lib/blog";
 const BASE_URL = "https://clearshorecounselling.com";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const routes = ["", "/about", "/services", "/telehealth", "/faq", "/contact", "/blog", "/privacy"];
+  const routes = ["", "/about", "/services", "/telehealth", "/faq", "/resources", "/contact", "/blog", "/privacy"];
 
   const staticEntries: MetadataRoute.Sitemap = routes.map((route) => ({
     url: `${BASE_URL}${route}`,
