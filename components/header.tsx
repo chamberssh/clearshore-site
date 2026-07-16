@@ -41,7 +41,7 @@ export function Header() {
               priority
               className="h-16 w-16 sm:h-20 sm:w-20"
             />
-            <span className="font-heading text-xl leading-none">
+            <span className="hidden font-heading text-xl leading-none 2xl:block">
               Clearshore Counselling
             </span>
           </Link>

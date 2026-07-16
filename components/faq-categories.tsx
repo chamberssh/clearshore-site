@@ -32,7 +32,7 @@ const categoryIcons: Record<string, LucideIcon> = {
 
 export function FaqCategories({ categories }: { categories: FaqCategory[] }) {
   return (
-    <Accordion multiple defaultValue={categories.map((category) => category.title)}>
+    <Accordion multiple>
       {categories.map((category, index) => {
         const Icon = categoryIcons[category.title] ?? Compass;
         return (
