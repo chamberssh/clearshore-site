@@ -1,16 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import {
-  ArrowRight,
-  Compass,
-  GraduationCap,
-  Heart,
-  HeartHandshake,
-  Shield,
-  Wind,
-} from "lucide-react";
+import { ArrowRight, Compass, Heart, Shield, Wind } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { WaveDivider } from "@/components/wave-divider";
+import { HeroMotif } from "@/components/hero-motif";
+import { ShelleyAvatar } from "@/components/shelley-avatar";
+import { WaitlistForm } from "@/components/waitlist-form";
+import { services } from "@/lib/services";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
@@ -42,53 +38,53 @@ const whoWeHelp = [
   },
 ];
 
-const services = [
-  {
-    icon: HeartHandshake,
-    title: "Grief & Loss Counselling",
-    description:
-      "Support through pregnancy loss, infant loss, child bereavement, and other profound losses — walking alongside you, not rushing you through.",
-  },
-  {
-    icon: GraduationCap,
-    title: "Educator & Teacher Wellbeing",
-    description:
-      "Burnout, classroom stress, compassion fatigue, and career transitions, from someone who understands the profession from the inside.",
-  },
-  {
-    icon: Shield,
-    title: "Trauma-Informed Support",
-    description:
-      "A calm, non-clinical space to process the effects of trauma, grounded in a trauma-informed approach.",
-  },
-  {
-    icon: Compass,
-    title: "Anxiety & Life Transitions",
-    description:
-      "Gentle, steady support through change, uncertainty, and the ordinary overwhelm of life.",
-  },
-];
+const BASE_URL = "https://clearshorecounselling.com";
 
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
+  "@id": `${BASE_URL}/#business`,
   name: "Clearshore Counselling",
   description:
     "Grief, trauma and wellbeing counselling in Hervey Bay, Queensland, with telehealth available across Australia.",
+  url: BASE_URL,
+  image: `${BASE_URL}/logo.png`,
+  logo: `${BASE_URL}/logo.png`,
+  priceRange: "$110-$170",
   address: {
     "@type": "PostalAddress",
     addressLocality: "Hervey Bay",
     addressRegion: "QLD",
     addressCountry: "AU",
   },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: -25.2882,
+    longitude: 152.8404,
+  },
   areaServed: {
     "@type": "Country",
     name: "Australia",
   },
+  sameAs: [
+    "https://facebook.com/profile.php?id=61589911111622",
+    "https://www.linkedin.com/company/117374290/",
+  ],
   founder: {
     "@type": "Person",
+    "@id": `${BASE_URL}/about#shelley`,
     name: "Shelley Bentley",
+    jobTitle: "Counsellor",
+    url: `${BASE_URL}/about`,
   },
+  makesOffer: services.map((service) => ({
+    "@type": "Offer",
+    itemOffered: {
+      "@type": "Service",
+      name: service.name,
+      url: `${BASE_URL}/services/${service.slug}`,
+    },
+  })),
 };
 
 export default function Home() {
@@ -101,12 +97,9 @@ export default function Home() {
 
       {/* Hero */}
       <section className="relative overflow-hidden bg-[linear-gradient(to_bottom,color-mix(in_srgb,var(--color-teal)_88%,white)_0%,var(--color-teal)_65%)] px-4 py-28 text-center text-white sm:px-6 sm:py-40">
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute -top-24 left-1/2 size-[32rem] -translate-x-1/2 rounded-full bg-[radial-gradient(circle,var(--color-gold)_0%,transparent_70%)] opacity-25 blur-2xl"
-        />
+        <HeroMotif className="absolute inset-0 h-full w-full" />
 
-        <div className="relative mx-auto max-w-3xl">
+        <div className="relative z-10 mx-auto max-w-3xl">
           <p className="text-xs font-semibold tracking-[0.25em] text-gold uppercase">
             Hervey Bay &middot; Telehealth Australia-wide
           </p>
@@ -118,16 +111,28 @@ export default function Home() {
             In-person in Hervey Bay, and by secure telehealth Australia-wide —
             gentle, unhurried counselling when you need it most.
           </p>
-          <div className="mt-10">
+          <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <Button
-              render={<Link href="/contact" />}
+              render={<Link href="#waitlist" />}
               nativeButton={false}
               size="lg"
               className="bg-gold text-ink hover:bg-gold/90"
             >
-              Book a session
+              Join the waitlist
+            </Button>
+            <Button
+              render={<Link href="/services" />}
+              nativeButton={false}
+              size="lg"
+              variant="outline"
+              className="border-white/60 bg-transparent text-white hover:bg-white hover:text-teal"
+            >
+              Explore services
             </Button>
           </div>
+          <p className="mt-6 text-sm text-white/70">
+            Opening April 2027 — waitlisted enquiries answered personally.
+          </p>
         </div>
 
         <WaveDivider className="absolute inset-x-0 bottom-0 translate-y-px text-white" />
@@ -170,18 +175,20 @@ export default function Home() {
           <h2 className="mt-3 text-center font-heading text-3xl text-teal">
             How we can help
           </h2>
-          <div className="mt-12 grid gap-8 sm:grid-cols-2 sm:gap-6 lg:grid-cols-4">
-            {services.map(({ icon: Icon, title, description }) => (
+          <div className="mt-12 grid gap-8 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3">
+            {services.map(({ slug, icon: Icon, name, shortDescription }) => (
               <Link
-                key={title}
-                href="/services"
+                key={slug}
+                href={`/services/${slug}`}
                 className="group flex flex-col rounded-3xl border border-soft-teal/40 bg-white p-7 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-lg"
               >
                 <div className="flex size-12 items-center justify-center rounded-full bg-teal/10 text-teal">
                   <Icon className="size-6" aria-hidden="true" />
                 </div>
-                <h3 className="mt-5 font-heading text-lg text-ink">{title}</h3>
-                <p className="mt-2 flex-1 text-sm text-ink/80">{description}</p>
+                <h3 className="mt-5 font-heading text-lg text-ink">{name}</h3>
+                <p className="mt-2 flex-1 text-sm text-ink/80">
+                  {shortDescription}
+                </p>
                 <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-medium text-teal">
                   Learn more
                   <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
@@ -197,20 +204,18 @@ export default function Home() {
       {/* Meet Shelley */}
       <section className="px-4 py-20 sm:px-6">
         <div className="mx-auto grid max-w-5xl items-center gap-10 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)]">
-          <div className="rounded-3xl bg-soft-teal/15 p-10">
-            <span className="font-heading text-8xl leading-none text-teal" aria-hidden="true">
-              &ldquo;
-            </span>
-            <p className="mt-2 text-sm font-semibold tracking-[0.25em] text-teal uppercase">
+          <div className="mx-auto w-full max-w-xs">
+            <ShelleyAvatar className="w-full shadow-lg" />
+            <p className="mt-4 text-center text-sm font-semibold tracking-[0.25em] text-teal uppercase">
               About Shelley
-            </p>
-            <p className="mt-2 font-heading text-2xl text-ink">
-              I don&apos;t come to grief from theory alone.
             </p>
           </div>
 
           <div>
-            <p className="text-ink/90">
+            <p className="font-heading text-2xl text-ink">
+              &ldquo;I don&apos;t come to grief from theory alone.&rdquo;
+            </p>
+            <p className="mt-4 text-ink/90">
               I&apos;m Shelley — a mother, a former primary school teacher, and
               a former Child Safety Officer. My own experience of losing a
               child sits at the heart of why I do this work. I also organise
@@ -231,6 +236,29 @@ export default function Home() {
                 Read Shelley&apos;s story
               </Button>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Waitlist */}
+      <section
+        id="waitlist"
+        className="relative scroll-mt-24 overflow-hidden bg-teal px-4 py-20 text-center text-white sm:px-6"
+      >
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute -top-24 left-1/2 size-[28rem] -translate-x-1/2 rounded-full bg-[radial-gradient(circle,var(--color-gold)_0%,transparent_70%)] opacity-20 blur-2xl"
+        />
+        <div className="relative mx-auto max-w-xl">
+          <h2 className="font-heading text-3xl sm:text-4xl">
+            Be first to know when booking opens
+          </h2>
+          <p className="mt-4 text-white/85">
+            Clearshore Counselling opens in April 2027. Leave your email and
+            I&apos;ll write to you personally when sessions become available.
+          </p>
+          <div className="mt-8">
+            <WaitlistForm />
           </div>
         </div>
       </section>

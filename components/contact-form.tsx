@@ -115,7 +115,14 @@ export function ContactForm() {
       {status === "error" && (
         <p className="text-sm text-red-600" role="alert">
           Something went wrong sending your message. Please try again, or
-          email us directly.
+          email me directly at{" "}
+          <a
+            href="mailto:hello@clearshorecounselling.com"
+            className="underline underline-offset-2"
+          >
+            hello@clearshorecounselling.com
+          </a>
+          .
         </p>
       )}
 

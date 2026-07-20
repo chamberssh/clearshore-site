@@ -1,18 +1,17 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import {
+  ArrowRight,
   CheckCircle2,
-  Compass,
-  GraduationCap,
   HeartHandshake,
   MapPin,
-  Shield,
-  Users,
   Video,
   Wallet,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { WaveDivider } from "@/components/wave-divider";
+import { HeroMotif } from "@/components/hero-motif";
+import { services } from "@/lib/services";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
@@ -22,32 +21,12 @@ export const metadata: Metadata = pageMetadata({
   path: "/services",
 });
 
-const otherServices = [
-  {
-    icon: GraduationCap,
-    title: "Educator & Teacher Wellbeing",
-    description:
-      "Burnout, classroom stress, compassion fatigue, and career transitions. Former teachers who become counsellors are rare — I understand the profession from the inside, because I've lived it.",
-  },
-  {
-    icon: Shield,
-    title: "Trauma-Informed Support",
-    description:
-      "A calm, non-clinical space to process the effects of trauma, informed by my background in child safety. This isn't crisis intervention — it's a safe place to work through what you're carrying, at your own pace.",
-  },
-  {
-    icon: Compass,
-    title: "Anxiety & Life Transitions",
-    description:
-      "Support through change, uncertainty, and the ordinary overwhelm of life. Whether you're facing a big decision or just feel unsteady, we'll find steadier ground together.",
-  },
-  {
-    icon: Users,
-    title: "Family & Parenting Support",
-    description:
-      "For parents and families navigating hard seasons — including parenting after loss or through crisis. Gentle, practical support for the whole family system.",
-  },
-];
+const griefService = services.find(
+  (service) => service.slug === "grief-and-loss-counselling"
+)!;
+const otherServices = services.filter(
+  (service) => service.slug !== "grief-and-loss-counselling"
+);
 
 const fundingPoints = [
   "Counsellors aren't currently eligible for Medicare rebates.",
@@ -78,7 +57,8 @@ export default function Services() {
   return (
     <>
       <section className="relative overflow-hidden bg-[linear-gradient(to_bottom,color-mix(in_srgb,var(--color-teal)_88%,white)_0%,var(--color-teal)_65%)] px-4 py-20 text-center text-white sm:px-6 sm:py-28">
-        <div className="mx-auto max-w-2xl">
+        <HeroMotif className="absolute inset-0 h-full w-full" />
+        <div className="relative z-10 mx-auto max-w-2xl">
           <p className="text-xs font-semibold tracking-[0.25em] text-gold uppercase">
             Services
           </p>
@@ -109,6 +89,17 @@ export default function Services() {
             something I&apos;ve only studied. It&apos;s where I&apos;m most
             at home, and where I most want to sit with you.
           </p>
+          <div className="mt-6">
+            <Button
+              render={<Link href={`/services/${griefService.slug}`} />}
+              nativeButton={false}
+              variant="outline"
+              className="border-teal text-teal hover:bg-teal hover:text-white"
+            >
+              About grief &amp; loss counselling
+              <ArrowRight className="size-4" aria-hidden="true" />
+            </Button>
+          </div>
         </div>
       </section>
 
@@ -118,17 +109,24 @@ export default function Services() {
             Other ways I can help
           </h2>
           <div className="mt-12 grid gap-8 sm:grid-cols-2">
-            {otherServices.map(({ icon: Icon, title, description }) => (
-              <div
-                key={title}
-                className="rounded-3xl border border-soft-teal/40 bg-white p-7 shadow-sm"
+            {otherServices.map(({ slug, icon: Icon, name, shortDescription }) => (
+              <Link
+                key={slug}
+                href={`/services/${slug}`}
+                className="group flex flex-col rounded-3xl border border-soft-teal/40 bg-white p-7 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-lg"
               >
                 <div className="flex size-12 items-center justify-center rounded-full bg-teal/10 text-teal">
                   <Icon className="size-6" aria-hidden="true" />
                 </div>
-                <h3 className="mt-5 font-heading text-xl text-ink">{title}</h3>
-                <p className="mt-2 text-sm text-ink/80">{description}</p>
-              </div>
+                <h3 className="mt-5 font-heading text-xl text-ink">{name}</h3>
+                <p className="mt-2 flex-1 text-sm text-ink/80">
+                  {shortDescription}
+                </p>
+                <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-medium text-teal">
+                  Learn more
+                  <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
+                </span>
+              </Link>
             ))}
           </div>
         </div>
@@ -168,7 +166,7 @@ export default function Services() {
         </div>
       </section>
 
-      <section className="bg-soft-teal/10 px-4 py-20 sm:px-6">
+      <section id="fees" className="scroll-mt-24 bg-soft-teal/10 px-4 py-20 sm:px-6">
         <div className="mx-auto max-w-4xl">
           <div className="flex items-center justify-center gap-3">
             <Wallet className="size-6 text-teal" aria-hidden="true" />
@@ -225,20 +223,20 @@ export default function Services() {
       <section className="px-4 py-20 text-center sm:px-6">
         <div className="mx-auto max-w-xl">
           <h2 className="font-heading text-3xl text-teal">
-            Ready to talk?
+            When you&apos;re ready
           </h2>
           <p className="mt-4 text-ink/90">
             Clearshore Counselling opens April 2027 — join the waitlist and
-            I&apos;ll be in touch when booking begins.
+            I&apos;ll be in touch personally when booking begins.
           </p>
           <div className="mt-8">
             <Button
-              render={<Link href="/contact" />}
+              render={<Link href="/contact#waitlist" />}
               nativeButton={false}
               size="lg"
               className="bg-gold text-ink hover:bg-gold/90"
             >
-              Book a session
+              Join the waitlist
             </Button>
           </div>
         </div>

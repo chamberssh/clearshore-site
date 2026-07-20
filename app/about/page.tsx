@@ -10,6 +10,7 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { WaveDivider } from "@/components/wave-divider";
+import { ShelleyAvatar } from "@/components/shelley-avatar";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
@@ -68,9 +69,38 @@ const qualifications = [
   },
 ];
 
+const personJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "@id": "https://clearshorecounselling.com/about#shelley",
+  name: "Shelley Bentley",
+  jobTitle: "Counsellor",
+  url: "https://clearshorecounselling.com/about",
+  worksFor: {
+    "@type": "LocalBusiness",
+    "@id": "https://clearshorecounselling.com/#business",
+    name: "Clearshore Counselling",
+  },
+  knowsAbout: [
+    "Grief and loss counselling",
+    "Educator and teacher wellbeing",
+    "Trauma-informed support",
+    "Anxiety and life transitions",
+    "Family and parenting support",
+  ],
+  alumniOf: {
+    "@type": "CollegeOrUniversity",
+    name: "University of Canberra",
+  },
+};
+
 export default function About() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+      />
       <section className="relative overflow-hidden bg-[linear-gradient(to_bottom,color-mix(in_srgb,var(--color-teal)_88%,white)_0%,var(--color-teal)_65%)] px-4 py-20 text-center text-white sm:px-6 sm:py-28">
         <div className="mx-auto max-w-2xl">
           <p className="text-xs font-semibold tracking-[0.25em] text-gold uppercase">
@@ -85,9 +115,7 @@ export default function About() {
 
       <section className="px-4 py-20 sm:px-6">
         <div className="mx-auto grid max-w-5xl items-center gap-10 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)]">
-          <div className="mx-auto flex size-40 items-center justify-center rounded-full bg-teal text-4xl font-heading text-white sm:size-48">
-            SB
-          </div>
+          <ShelleyAvatar className="mx-auto w-full max-w-56 shadow-lg sm:max-w-64" />
           <div>
             <p className="font-heading text-2xl leading-snug text-ink italic">
               I didn&apos;t set out to become a counsellor. I came to this

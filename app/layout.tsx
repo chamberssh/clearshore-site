@@ -24,6 +24,10 @@ export const metadata: Metadata = {
     description:
       "Clearshore Counselling offers grief, trauma and wellbeing support in Hervey Bay, Queensland, and via telehealth Australia-wide.",
   }),
+  title: {
+    default: "Clearshore Counselling | Hervey Bay & Telehealth",
+    template: "%s | Clearshore Counselling",
+  },
 };
 
 export default function RootLayout({
@@ -37,8 +41,16 @@ export default function RootLayout({
       className={cn("h-full", "antialiased", cormorantGaramond.variable, inter.variable, "font-sans")}
     >
       <body className="min-h-full flex flex-col">
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-full focus:bg-teal focus:px-5 focus:py-2.5 focus:text-white"
+        >
+          Skip to main content
+        </a>
         <Header />
-        <main className="flex-1">{children}</main>
+        <main id="main-content" className="flex-1">
+          {children}
+        </main>
         <Footer />
       </body>
     </html>

@@ -70,12 +70,13 @@ export default function Contact() {
 
           <div className="mx-auto mt-12 max-w-3xl rounded-3xl border-l-4 border-gold bg-teal/5 p-8 text-center sm:p-10">
             <h2 className="font-heading text-2xl text-teal">
-              Book a session
+              Booking opens April 2027
             </h2>
             <p className="mt-3 text-ink/90">
-              Online booking will move to our booking system (Zanda) once
-              Clearshore Counselling opens in April 2027. For now, send a
-              message below and I&apos;ll reply directly.
+              Online booking will run through our booking system (Zanda) once
+              Clearshore Counselling opens. Until then, join the waitlist
+              below — I&apos;ll reply personally to any message, and let you
+              know the moment booking begins.
             </p>
             <div className="mt-6">
               <Button
@@ -83,7 +84,7 @@ export default function Contact() {
                 nativeButton={false}
                 className="bg-gold text-ink hover:bg-gold/90"
               >
-                Book a session
+                Join the waitlist
               </Button>
             </div>
           </div>

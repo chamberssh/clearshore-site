@@ -112,6 +112,15 @@ export default function Blog() {
                   {post.title}
                 </h2>
                 <p className="mt-2 text-sm text-ink/80">{post.description}</p>
+                <p className="mt-3 text-xs text-ink/60">
+                  <time dateTime={post.date}>
+                    {new Date(post.date).toLocaleDateString("en-AU", {
+                      day: "numeric",
+                      month: "long",
+                      year: "numeric",
+                    })}
+                  </time>
+                </p>
               </Link>
             ))}
           </div>

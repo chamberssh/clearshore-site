@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -20,6 +21,11 @@ const navLinks = [
 
 export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const pathname = usePathname();
+
+  function isActive(href: string) {
+    return href === "/" ? pathname === "/" : pathname.startsWith(href);
+  }
 
   return (
     <header>
@@ -51,7 +57,13 @@ export function Header() {
               <li key={link.href}>
                 <Link
                   href={link.href}
-                  className="text-white/90 transition-colors hover:text-soft-teal"
+                  aria-current={isActive(link.href) ? "page" : undefined}
+                  className={cn(
+                    "border-b-2 pb-0.5 transition-colors hover:text-white",
+                    isActive(link.href)
+                      ? "border-gold text-white"
+                      : "border-transparent text-white/85"
+                  )}
                 >
                   {link.label}
                 </Link>
@@ -61,11 +73,11 @@ export function Header() {
 
           <div className="hidden xl:block">
             <Button
-              render={<Link href="/contact" />}
+              render={<Link href="/contact#waitlist" />}
               nativeButton={false}
               className="bg-gold text-ink hover:bg-gold/90"
             >
-              Book a session
+              Join the waitlist
             </Button>
           </div>
 
@@ -90,7 +102,13 @@ export function Header() {
             <li key={link.href}>
               <Link
                 href={link.href}
-                className="block py-2 text-white/90 hover:text-soft-teal"
+                aria-current={isActive(link.href) ? "page" : undefined}
+                className={cn(
+                  "block border-l-2 py-2 pl-3 hover:text-white",
+                  isActive(link.href)
+                    ? "border-gold text-white"
+                    : "border-transparent text-white/85"
+                )}
                 onClick={() => setMobileOpen(false)}
               >
                 {link.label}
@@ -99,12 +117,12 @@ export function Header() {
           ))}
           <li className="pt-2">
             <Button
-              render={<Link href="/contact" />}
+              render={<Link href="/contact#waitlist" />}
               nativeButton={false}
               className="w-full bg-gold text-ink hover:bg-gold/90"
               onClick={() => setMobileOpen(false)}
             >
-              Book a session
+              Join the waitlist
             </Button>
           </li>
         </ul>
