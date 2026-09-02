@@ -204,7 +204,7 @@
       rec.onstart = function () { btn.classList.add("on"); set(listening); };
       rec.onresult = function (e) { got = true; var t = ""; for (var i = 0; i < e.results.length; i++) t += e.results[i][0].transcript; input.value = base + t; };
       rec.onerror = function (e) { var m = micError(e && e.error); if (e && (e.error === "not-allowed" || e.error === "service-not-allowed")) m = BLOCKED_MSG; set(m, true); };
-      rec.onend = function () { btn.classList.remove("on"); rec = null; if (!got && statusEl.textContent === listening) set("Didn't catch anything — tap the mic and speak clearly."); };
+      rec.onend = function () { btn.classList.remove("on"); rec = null; if (!got && statusEl.textContent === listening) set("Didn't catch anything. The most reliable way on a phone is your keyboard's 🎤 mic key — tap into the box and use that to dictate."); };
       try { rec.start(); } catch (err) { btn.classList.remove("on"); rec = null; set("Couldn't start voice: " + ((err && err.message) || err), true); }
     }
     btn.addEventListener("click", function () {
@@ -214,7 +214,7 @@
         set("Tap “Allow” when your browser asks to use the microphone…");
         navigator.mediaDevices.getUserMedia({ audio: true }).then(function (stream) {
           stream.getTracks().forEach(function (t) { t.stop(); });
-          startRec();
+          setTimeout(startRec, 250); // let the mic settle before recognition
         }).catch(function () { set(BLOCKED_MSG, true); });
       } else { startRec(); }
     });
