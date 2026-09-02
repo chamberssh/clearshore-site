@@ -191,21 +191,32 @@
       default: return "Voice error" + (code ? " (" + code + ")" : "") + ". Try Chrome, or use your keyboard's mic key.";
     }
   }
+  var BLOCKED_MSG = "Your browser is blocking the microphone for this site. Turn it on in your browser's site settings (the small icon just left of the web address, or the browser menu → Site settings → Microphone → Allow), then tap the mic again.";
   function makeMic(input, statusEl) {
     var btn = el("button", "mic"); btn.type = "button"; btn.innerHTML = MIC; btn.setAttribute("aria-label", "Speak");
     var rec = null;
     function set(msg, err) { statusEl.textContent = msg || ""; statusEl.className = "micstatus" + (err ? " err" : ""); }
-    btn.addEventListener("click", function () {
-      if (rec) { try { rec.stop(); } catch (e) {} return; }
+    function startRec() {
       try { rec = new SR(); } catch (e) { set("Voice isn't available in this browser. Try Chrome, or use your keyboard's mic key.", true); return; }
       rec.lang = "en-AU"; rec.interimResults = true; rec.continuous = false; rec.maxAlternatives = 1;
       var base = input.value ? input.value + " " : "";
       var got = false, listening = "Listening… tap the mic again to stop.";
       rec.onstart = function () { btn.classList.add("on"); set(listening); };
       rec.onresult = function (e) { got = true; var t = ""; for (var i = 0; i < e.results.length; i++) t += e.results[i][0].transcript; input.value = base + t; };
-      rec.onerror = function (e) { set(micError(e && e.error), true); };
+      rec.onerror = function (e) { var m = micError(e && e.error); if (e && (e.error === "not-allowed" || e.error === "service-not-allowed")) m = BLOCKED_MSG; set(m, true); };
       rec.onend = function () { btn.classList.remove("on"); rec = null; if (!got && statusEl.textContent === listening) set("Didn't catch anything — tap the mic and speak clearly."); };
       try { rec.start(); } catch (err) { btn.classList.remove("on"); rec = null; set("Couldn't start voice: " + ((err && err.message) || err), true); }
+    }
+    btn.addEventListener("click", function () {
+      if (rec) { try { rec.stop(); } catch (e) {} return; }
+      // Ask for the mic first so the browser shows its Allow prompt.
+      if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+        set("Tap “Allow” when your browser asks to use the microphone…");
+        navigator.mediaDevices.getUserMedia({ audio: true }).then(function (stream) {
+          stream.getTracks().forEach(function (t) { t.stop(); });
+          startRec();
+        }).catch(function () { set(BLOCKED_MSG, true); });
+      } else { startRec(); }
     });
     return btn;
   }
