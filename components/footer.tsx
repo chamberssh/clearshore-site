@@ -135,6 +135,10 @@ export function Footer() {
         &copy; {new Date().getFullYear()} Clearshore Counselling. Hervey Bay, QLD.{" "}
         <Link href="/privacy" className="underline underline-offset-2 hover:text-white">
           Privacy policy
+        </Link>{" "}
+        &middot;{" "}
+        <Link href="/counsellor-guide" className="underline underline-offset-2 hover:text-white">
+          Counsellor guide
         </Link>
       </div>
     </footer>
