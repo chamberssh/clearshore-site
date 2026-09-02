@@ -53,14 +53,14 @@ export function Header() {
             </span>
           </Link>
 
-          <ul className="hidden items-center gap-6 xl:flex 2xl:gap-8">
+          <ul className="hidden items-center gap-4 xl:flex 2xl:gap-6">
             {navLinks.map((link) => (
               <li key={link.href}>
                 <Link
                   href={link.href}
                   aria-current={isActive(link.href) ? "page" : undefined}
                   className={cn(
-                    "border-b-2 pb-0.5 transition-colors hover:text-white",
+                    "whitespace-nowrap border-b-2 pb-0.5 transition-colors hover:text-white",
                     isActive(link.href)
                       ? "border-gold text-white"
                       : "border-transparent text-white/85"
