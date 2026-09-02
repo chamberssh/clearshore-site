@@ -91,6 +91,11 @@ export function Footer() {
               </Link>
             </li>
             <li>
+              <Link href="/assist" className="hover:text-white hover:underline hover:underline-offset-2">
+                Clearshore Assist
+              </Link>
+            </li>
+            <li>
               <Link href="/contact" className="hover:text-white hover:underline hover:underline-offset-2">
                 Contact
               </Link>
