@@ -5,6 +5,11 @@ import { SITE_AUTH_COOKIE, hashSitePassword } from "@/lib/site-auth";
 export async function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
+  // The counsellor guide was merged into the Clearshore Assist page.
+  if (pathname === "/counsellor-guide") {
+    return NextResponse.redirect(new URL("/assist", request.url));
+  }
+
   if (pathname === "/enter" || pathname === "/api/enter") {
     return NextResponse.next();
   }
