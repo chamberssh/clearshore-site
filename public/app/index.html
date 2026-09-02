@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Clearshore Assist</title>
+<meta name="theme-color" content="#0c242b" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-title" content="Assist" />
+<link rel="manifest" href="/app/manifest.json" />
+<link rel="apple-touch-icon" href="/apple-icon.png" />
+<style>
+  :root {
+    --ground: #f3f6f4; --panel: #ffffff; --ink: #14312f; --muted: #5c706d;
+    --line: #e0e7e3; --teal: #1c7d75; --teal-deep: #12615a; --teal-soft: #e7f1ef;
+    --sand: #c98a2e; --sand-soft: #f6ecd9; --ok: #2f7d4f; --ok-soft: #e4f2e8;
+    --warn: #b5791f; --warn-soft: #f6ecd6; --crit: #b23b28; --crit-soft: #f7e2dd;
+    --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, system-ui, sans-serif;
+  }
+  * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  html, body { margin: 0; }
+  body { background: var(--ground); color: var(--ink); font-family: var(--font); line-height: 1.5; padding-bottom: env(safe-area-inset-bottom); }
+  .top { background: linear-gradient(160deg, var(--teal-deep), #0c242b); color: #fff; padding: calc(env(safe-area-inset-top) + 16px) 18px 16px; }
+  .top b { font-size: 1.25rem; letter-spacing: -0.01em; display: block; }
+  .top span { font-size: 0.82rem; color: #bfe0db; }
+  .wrap { max-width: 640px; margin: 0 auto; padding: 16px; }
+
+  .banner { background: var(--sand-soft); border: 1px solid #ecd9b4; color: #6b4e17; border-radius: 14px; padding: 12px 14px; font-size: 0.86rem; display: flex; gap: 9px; }
+
+  h2.step { font-size: 0.95rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin: 22px 2px 10px; }
+
+  .picker { display: grid; grid-template-columns: 1fr 1fr; gap: 11px; }
+  .pick { text-align: left; background: var(--panel); border: 1.5px solid var(--line); border-radius: 16px; padding: 14px; cursor: pointer; font: inherit; transition: border-color .15s, background .15s; }
+  .pick:active { transform: scale(0.98); }
+  .pick[aria-pressed="true"] { border-color: var(--teal); background: var(--teal-soft); }
+  .pick .ic { width: 38px; height: 38px; border-radius: 11px; display: grid; place-items: center; background: var(--teal-soft); color: var(--teal-deep); margin-bottom: 9px; }
+  .pick[aria-pressed="true"] .ic { background: #fff; }
+  .pick .name { font-weight: 650; font-size: 0.98rem; }
+  .pick .blurb { font-size: 0.78rem; color: var(--muted); margin-top: 2px; }
+
+  .panel { background: var(--panel); border: 1px solid var(--line); border-radius: 18px; padding: 16px; }
+  .field { margin-bottom: 15px; }
+  .field label { display: block; font-weight: 600; font-size: 0.9rem; margin-bottom: 6px; }
+  .field .req { color: var(--crit); }
+  .field .opt { color: var(--muted); font-weight: 400; font-size: 0.8rem; }
+  .inrow { position: relative; }
+  textarea, select, input[type=text] { width: 100%; font: inherit; font-size: 1rem; color: inherit; padding: 12px 13px; border: 1.5px solid var(--line); border-radius: 12px; background: #fdfefe; -webkit-appearance: none; }
+  textarea { min-height: 96px; resize: vertical; padding-right: 46px; }
+  input[type=text] { padding-right: 46px; }
+  textarea:focus, select:focus, input:focus { outline: none; border-color: var(--teal); box-shadow: 0 0 0 3px var(--teal-soft); }
+  .mic { position: absolute; top: 8px; right: 8px; width: 34px; height: 34px; border-radius: 50%; border: none; background: var(--teal-soft); color: var(--teal-deep); display: grid; place-items: center; cursor: pointer; }
+  .mic.on { background: var(--crit); color: #fff; animation: pulse 1.2s infinite; }
+  @keyframes pulse { 0%,100%{box-shadow:0 0 0 0 rgba(178,59,40,.4)} 50%{box-shadow:0 0 0 6px rgba(178,59,40,0)} }
+
+  .actions { display: flex; gap: 10px; margin-top: 4px; }
+  .btn { flex: 1; font: inherit; font-weight: 650; font-size: 1rem; border: 1px solid transparent; border-radius: 999px; padding: 14px; cursor: pointer; }
+  .btn-primary { background: var(--teal); color: #fff; }
+  .btn-primary:active { background: var(--teal-deep); }
+  .btn-ghost { background: transparent; border-color: var(--line); color: var(--ink); flex: 0 0 auto; padding: 14px 18px; }
+  .btn:disabled { opacity: .55; }
+
+  .result { margin-top: 18px; }
+  .result-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px; }
+  .result-head h2 { margin: 0; font-size: 1.1rem; }
+  .copy { font: inherit; font-weight: 600; font-size: 0.85rem; border: 1px solid var(--line); background: #fff; border-radius: 999px; padding: 7px 14px; }
+  .review-note { font-size: 0.8rem; color: var(--muted); margin-bottom: 10px; }
+  .block { border-top: 1px solid var(--line); padding: 12px 0; }
+  .block:first-child { border-top: 0; padding-top: 4px; }
+  .k { font-size: 0.7rem; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; color: var(--teal-deep); margin-bottom: 5px; }
+  .para { white-space: pre-wrap; margin: 0; font-size: 0.95rem; }
+  .list { margin: 4px 0 0; padding-left: 18px; font-size: 0.95rem; }
+  .list li { margin-bottom: 5px; }
+  .quote { border-left: 3px solid var(--teal); padding-left: 10px; color: #35514f; font-style: italic; }
+  .subitem { background: #f6faf9; border: 1px solid var(--line); border-radius: 11px; padding: 10px 12px; margin-top: 8px; }
+  .flag { font-size: 0.95rem; padding: 11px 14px; border-radius: 11px; font-weight: 650; display: inline-block; }
+  .flag.none { background: var(--ok-soft); color: var(--ok); } .flag.needs { background: var(--warn-soft); color: var(--warn); } .flag.urgent { background: var(--crit-soft); color: var(--crit); }
+  .pill { display: inline-block; font-size: 0.75rem; font-weight: 600; padding: 2px 9px; border-radius: 999px; margin-left: 6px; }
+  .pill.tier-review, .pill.tier-ambiguous { background: var(--warn-soft); color: var(--warn); } .pill.tier-urgent { background: var(--crit-soft); color: var(--crit); }
+  .errors { background: var(--crit-soft); border: 1px solid #eec6bd; color: #7a2718; border-radius: 14px; padding: 14px; }
+  .errors ul { margin: 6px 0 0; padding-left: 18px; }
+
+  .hint { margin-top: 20px; font-size: 0.78rem; color: var(--muted); text-align: center; }
+  .foot { text-align: center; color: var(--muted); font-size: 0.75rem; padding: 22px 16px 30px; }
+  [hidden] { display: none !important; }
+</style>
+</head>
+<body>
+  <div class="top"><b>Clearshore Assist</b><span>Runs on your device &middot; nothing is sent online</span></div>
+
+  <div class="wrap">
+    <div class="banner">
+      <span aria-hidden="true">🔒</span>
+      <span><strong>Before you start:</strong> remove anything that could identify a client. Every draft is a starting point for you to review and approve.</span>
+    </div>
+
+    <h2 class="step">1 · Choose a tool</h2>
+    <div class="picker" id="picker"></div>
+
+    <div id="formwrap" hidden>
+      <h2 class="step">2 · Fill it in <span id="voicehint" style="text-transform:none;letter-spacing:0;font-weight:400"></span></h2>
+      <form class="panel" id="form">
+        <div id="fields"></div>
+        <div class="actions">
+          <button type="submit" class="btn btn-primary" id="go">Create draft</button>
+          <button type="button" class="btn btn-ghost" id="clear">Clear</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="result" id="result" hidden></div>
+    <p class="hint" id="installhint"></p>
+  </div>
+
+  <div class="foot">Deterministic prototype for clinician review. Not a diagnosis, risk assessment, or crisis service.</div>
+
+<script src="/app/skills.js"></script>
+<script>
+  var ICONS = {
+    "session-notes": '<svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M6 3h9l4 4v14H6z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M14 3v5h5M9 13h6M9 17h4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>',
+    intake: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="4" y="3" width="16" height="18" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M8 8h8M8 12h8M8 16h5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>',
+    risk: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 3l8 3v5c0 5-3.4 8.4-8 10-4.6-1.6-8-5-8-10V6l8-3z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M12 8v4M12 15h.01" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>',
+    "client-tools": '<svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 20s-7-4.3-7-9.5A4.5 4.5 0 0 1 12 7a4.5 4.5 0 0 1 7 3.5C19 15.7 12 20 12 20z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>',
+  };
+  var MIC = '<svg width="17" height="17" viewBox="0 0 24 24" fill="none"><rect x="9" y="3" width="6" height="11" rx="3" stroke="currentColor" stroke-width="1.7"/><path d="M6 11a6 6 0 0 0 12 0M12 17v3" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>';
+  var KEY_LABELS = { note_type:"Type", clinical_framework:"Format", summary:"Summary", data:"Notes", assessment:"Assessment", plan:"Plan", risk_flags:"Safety", clinician_actions:"Your next steps", presenting_issues:"Presenting issues", history_and_context:"History & context", strengths_and_supports:"Strengths & supports", risk_indicators:"Possible risk language", follow_up_questions:"Questions to ask", clinician_review_required:"Clinician review required", limitations:"Good to know", overall_flag:"Overall", risk_domains:"What it noticed", protective_factors:"Protective factors", immediate_clinician_actions:"Do this now", title:"Title", message:"Message", prompts:"Prompts", small_next_step:"A small next step", safety_note:"Safety note" };
+  var FLAG_CLASS = { none_detected:"none", needs_clinician_review:"needs", urgent_clinician_review:"urgent" };
+  var FLAG_TEXT = { none_detected:"No risk language detected", needs_clinician_review:"Needs clinician review", urgent_clinician_review:"Urgent clinician review" };
+  var pretty = function (v) { return String(v).replace(/_/g, " ").replace(/^\w/, function (c) { return c.toUpperCase(); }); };
+  var el = function (t, c, x) { var e = document.createElement(t); if (c) e.className = c; if (x != null) e.textContent = x; return e; };
+  var SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+
+  var TOOLS = window.CLEARSHORE_SKILLS.getSpecs();
+  var current = null;
+
+  var voicehint = document.getElementById("voicehint");
+  voicehint.textContent = SR ? "(tap the mic to speak)" : "(tip: use your keyboard's mic key to dictate)";
+
+  var picker = document.getElementById("picker");
+  TOOLS.forEach(function (t) {
+    var b = el("button", "pick"); b.type = "button"; b.setAttribute("aria-pressed", "false"); b.dataset.id = t.id;
+    var ic = el("div", "ic"); ic.innerHTML = ICONS[t.id] || ""; b.appendChild(ic);
+    b.appendChild(el("div", "name", t.name)); b.appendChild(el("div", "blurb", t.blurb));
+    b.addEventListener("click", function () { select(t.id); });
+    picker.appendChild(b);
+  });
+
+  function select(id) {
+    current = TOOLS.filter(function (t) { return t.id === id; })[0];
+    Array.prototype.forEach.call(document.querySelectorAll(".pick"), function (p) { p.setAttribute("aria-pressed", String(p.dataset.id === id)); });
+    var fields = document.getElementById("fields"); fields.innerHTML = "";
+    current.fields.forEach(function (f) {
+      var wrap = el("div", "field");
+      var label = el("label"); label.htmlFor = "f_" + f.name;
+      label.appendChild(document.createTextNode(f.label + " "));
+      label.appendChild(f.required ? el("span", "req", "*") : el("span", "opt", "(optional)"));
+      wrap.appendChild(label);
+      var row = el("div", "inrow");
+      var input;
+      if (f.widget === "select") {
+        input = el("select");
+        var blank = el("option", null, f.required ? "Choose…" : "— none —"); blank.value = ""; input.appendChild(blank);
+        f.options.forEach(function (o) { var op = el("option", null, pretty(o)); op.value = o; input.appendChild(op); });
+      } else if (f.widget === "textarea") { input = el("textarea"); }
+      else { input = el("input"); input.type = "text"; }
+      input.id = "f_" + f.name; input.name = f.name; if (f.placeholder) input.placeholder = f.placeholder;
+      row.appendChild(input);
+      if (SR && f.widget !== "select") row.appendChild(makeMic(input));
+      wrap.appendChild(row); fields.appendChild(wrap);
+    });
+    document.getElementById("formwrap").hidden = false;
+    document.getElementById("result").hidden = true;
+    document.getElementById("formwrap").scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+
+  function makeMic(input) {
+    var btn = el("button", "mic"); btn.type = "button"; btn.innerHTML = MIC; btn.setAttribute("aria-label", "Speak");
+    var rec = null;
+    btn.addEventListener("click", function () {
+      if (rec) { rec.stop(); return; }
+      rec = new SR(); rec.lang = "en-AU"; rec.interimResults = true; rec.continuous = false;
+      var base = input.value ? input.value + " " : "";
+      btn.classList.add("on");
+      rec.onresult = function (e) { var t = ""; for (var i = 0; i < e.results.length; i++) t += e.results[i][0].transcript; input.value = base + t; };
+      rec.onerror = function () { stop(); };
+      rec.onend = function () { stop(); };
+      function stop() { btn.classList.remove("on"); rec = null; }
+      try { rec.start(); } catch (err) { btn.classList.remove("on"); rec = null; }
+    });
+    return btn;
+  }
+
+  document.getElementById("clear").addEventListener("click", function () {
+    document.getElementById("form").reset();
+    document.getElementById("result").hidden = true;
+  });
+
+  document.getElementById("form").addEventListener("submit", function (e) {
+    e.preventDefault(); if (!current) return;
+    var input = {};
+    current.fields.forEach(function (f) { input[f.name] = (document.getElementById("f_" + f.name).value || "").trim(); });
+    var data = window.CLEARSHORE_SKILLS.runTool(current.id, input);
+    renderResult(data);
+  });
+
+  function renderResult(data) {
+    var box = document.getElementById("result"); box.innerHTML = ""; box.hidden = false;
+    if (!data.ok) {
+      var e = el("div", "errors"); e.appendChild(el("strong", null, "Please check the form:"));
+      var ul = el("ul", "list"); (data.errors || ["Something went wrong."]).forEach(function (m) { ul.appendChild(el("li", null, pretty(m))); });
+      e.appendChild(ul); box.appendChild(e); box.scrollIntoView({ behavior: "smooth", block: "start" }); return;
+    }
+    var head = el("div", "result-head"); head.appendChild(el("h2", null, "Your draft"));
+    var copy = el("button", "copy", "Copy"); copy.type = "button";
+    copy.addEventListener("click", function () {
+      var text = toPlainText(data.output);
+      if (navigator.clipboard) navigator.clipboard.writeText(text).then(flash);
+      else { var ta = el("textarea"); ta.value = text; document.body.appendChild(ta); ta.select(); document.execCommand("copy"); ta.remove(); flash(); }
+      function flash() { copy.textContent = "Copied ✓"; setTimeout(function () { copy.textContent = "Copy"; }, 1500); }
+    });
+    head.appendChild(copy); box.appendChild(head);
+    box.appendChild(el("div", "review-note", "Draft only — review, correct, and approve before use."));
+    var panel = el("div", "panel");
+    Object.keys(data.output).forEach(function (k) { panel.appendChild(renderBlock(k, data.output[k])); });
+    box.appendChild(panel);
+    box.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+  function renderBlock(key, value) {
+    var block = el("div", "block"); block.appendChild(el("div", "k", KEY_LABELS[key] || pretty(key)));
+    if (key === "overall_flag") block.appendChild(el("span", "flag " + (FLAG_CLASS[value] || "needs"), FLAG_TEXT[value] || pretty(value)));
+    else block.appendChild(renderValue(value));
+    return block;
+  }
+  function renderValue(v) {
+    if (typeof v === "boolean") return el("p", "para", v ? "Yes" : "No");
+    if (Array.isArray(v)) {
+      if (v.length && typeof v[0] === "object") { var frag = document.createDocumentFragment(); v.forEach(function (o) { frag.appendChild(renderObject(o)); }); return frag; }
+      var ul = el("ul", "list"); v.forEach(function (i) { ul.appendChild(el("li", null, String(i))); }); return ul;
+    }
+    if (v && typeof v === "object") return renderObject(v);
+    return el("p", "para", String(v));
+  }
+  function renderObject(o) {
+    var box = el("div", "subitem");
+    if (o.label || o.domain) box.appendChild(el("strong", null, o.label || pretty(o.domain)));
+    if (o.tier) box.appendChild(el("span", "pill tier-" + o.tier, pretty(o.tier)));
+    var ev = o.evidence;
+    if (ev) { if (Array.isArray(ev)) ev.forEach(function (x) { box.appendChild(el("p", "para quote", String(x))); }); else box.appendChild(el("p", "para quote", String(ev))); }
+    ["factor", "cue", "note"].forEach(function (k) { if (o[k] && o[k] !== "none_identified" && o[k] !== "none_detected") box.appendChild(el("p", "para", pretty(o[k]))); });
+    return box;
+  }
+  function toPlainText(out) {
+    var lines = [];
+    Object.keys(out).forEach(function (k) { lines.push((KEY_LABELS[k] || pretty(k)).toUpperCase()); lines.push(valueToText(out[k])); lines.push(""); });
+    return lines.join("\n").trim() + "\n";
+  }
+  function valueToText(v) {
+    if (typeof v === "boolean") return v ? "Yes" : "No";
+    if (Array.isArray(v)) return v.map(function (i) { return typeof i === "object" ? objText(i) : "- " + i; }).join("\n");
+    if (v && typeof v === "object") return objText(v);
+    return String(v);
+  }
+  function objText(o) { return Object.keys(o).map(function (k) { var val = o[k]; return "  " + pretty(k) + ": " + (Array.isArray(val) ? val.join("; ") : val); }).join("\n"); }
+
+  // Add-to-home-screen hint
+  var isiOS = /iphone|ipad|ipod/i.test(navigator.userAgent);
+  var standalone = window.matchMedia("(display-mode: standalone)").matches || window.navigator.standalone;
+  if (!standalone) document.getElementById("installhint").textContent = isiOS
+    ? "Add to your Home Screen: tap the Share button, then “Add to Home Screen.”"
+    : "Add to your Home Screen from your browser menu to use it like an app.";
+</script>
+</body>
+</html>

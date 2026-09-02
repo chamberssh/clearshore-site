@@ -424,8 +424,8 @@ export const assistHtml = `
     </div>
     <p class="download-line" data-reveal>
       Testing it out?
-      <a href="/downloads/clearshore-assist-windows.exe" download>Download the Windows app (beta)</a>
-      &mdash; an unsigned preview, Windows only for now.
+      <a href="/app/index.html">Open the web app (beta)</a> on your phone or computer, or
+      <a href="/downloads/clearshore-assist-windows.exe" download>download the Windows app</a>.
     </p>
   </div>
 </section>
