@@ -7,7 +7,7 @@ import { AssistEffects } from "./effects";
 export const metadata: Metadata = pageMetadata({
   title: "Clearshore Assist",
   description:
-    "Warm, safe AI drafting tools for counsellors — session notes, intakes, safety checks and client check-ins, with you in control of every draft.",
+    "Warm, safe AI drafting tools for counsellors — session notes, intakes, safety checks, referrals, progress reviews, case formulation, client check-ins and emails, with you in control of every draft.",
   path: "/assist",
 });
 

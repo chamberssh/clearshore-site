@@ -120,18 +120,13 @@ export const assistHtml = `
   .assist-page .glance { padding-block: clamp(3rem, 6vw, 4.5rem); }
   .assist-page .glance-intro { max-width: 56ch; }
   .assist-page .glance-intro h2 { font-size: clamp(1.7rem, 3.4vw, 2.5rem); letter-spacing: -0.015em; }
-  .assist-page .glance-rail { margin-top: 2.8rem; position: relative; display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.4rem 1rem; }
-  .assist-page .glance-rail::before { content: ""; position: absolute; left: 12%; right: 12%; top: 34px; height: 2px; background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--teal) 48%, white) 20%, color-mix(in srgb, var(--teal) 48%, white) 80%, transparent); z-index: 0; }
+  .assist-page .glance-rail { margin-top: 2.8rem; display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem 1rem; }
+  @media (min-width: 760px) { .assist-page .glance-rail { grid-template-columns: repeat(4, 1fr); } }
   .assist-page .glance-item { position: relative; z-index: 1; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 0.55rem; }
   .assist-page .glance-badge { width: 68px; height: 68px; border-radius: 20px; display: grid; place-items: center; color: #fff; background: linear-gradient(160deg, var(--teal), var(--teal-deep)); box-shadow: 0 16px 28px -14px color-mix(in srgb, var(--teal-deep) 75%, transparent); border: 5px solid var(--fog); }
   .assist-page .glance-item h3 { font-size: 1.12rem; }
   .assist-page .glance-item p { font-size: 0.86rem; color: var(--on-fog-muted); max-width: 20ch; line-height: 1.4; }
   .assist-page .glance-note { margin: 2.6rem auto 0; width: fit-content; display: flex; align-items: center; gap: 0.55rem; font-weight: 600; color: var(--teal-deep); background: color-mix(in srgb, var(--teal) 10%, white); border: 1px solid color-mix(in srgb, var(--teal) 26%, white); padding: 0.6rem 1.15rem; border-radius: 999px; font-size: 0.92rem; text-align: center; }
-  @media (max-width: 720px) {
-    .assist-page .glance-rail { grid-template-columns: repeat(2, 1fr); gap: 2rem 1rem; }
-    .assist-page .glance-rail::before { display: none; }
-  }
-
   /* tools */
   .assist-page .tools { margin-top: 2.8rem; display: grid; gap: 1.4rem; }
   @media (min-width: 720px) { .assist-page .tools { grid-template-columns: repeat(2, 1fr); } }
@@ -201,9 +196,9 @@ export const assistHtml = `
         <p class="eyebrow" data-reveal>Made for counsellors</p>
         <h1 data-reveal>Less time on notes.<br>More time with <em>people.</em></h1>
         <p class="lede" data-reveal>
-          Clearshore Assist quietly turns your session notes, intakes and client
-          check-ins into warm, ready-to-review drafts &mdash; so the writing takes
-          minutes, and the care stays entirely yours.
+          Clearshore Assist quietly turns your notes, intakes, referrals,
+          reviews and client messages into warm, ready-to-review drafts &mdash; so
+          the writing takes minutes, and the care stays entirely yours.
         </p>
         <div class="hero-cta" data-reveal>
           <a class="a-btn sand" href="mailto:hello@clearshorecounselling.com?subject=Clearshore%20Assist%20early%20access">Request early access</a>
@@ -253,7 +248,7 @@ export const assistHtml = `
   <div class="wrap">
     <div class="glance-intro" data-reveal>
       <p class="eyebrow on-fog">At a glance</p>
-      <h2>Four helpers. One simple promise.</h2>
+      <h2>Eight helpers. One simple promise.</h2>
     </div>
     <div class="glance-rail">
       <div class="glance-item" data-reveal>
@@ -275,6 +270,26 @@ export const assistHtml = `
         <span class="glance-badge" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M12 20s-7-4.3-7-9.5A4.5 4.5 0 0 1 12 7a4.5 4.5 0 0 1 7 3.5C19 15.7 12 20 12 20z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></span>
         <h3>Client check-ins</h3>
         <p>Gentle reflections between sessions</p>
+      </div>
+      <div class="glance-item" data-reveal>
+        <span class="glance-badge" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M22 3L11 14M22 3l-7 19-4-8-8-4 19-7z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></span>
+        <h3>Referral letters</h3>
+        <p>Notes become a referral scaffold</p>
+      </div>
+      <div class="glance-item" data-reveal>
+        <span class="glance-badge" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M4 20h16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><rect x="5" y="12" width="3" height="6" stroke="currentColor" stroke-width="1.6"/><rect x="10.5" y="8" width="3" height="10" stroke="currentColor" stroke-width="1.6"/><rect x="16" y="4" width="3" height="14" stroke="currentColor" stroke-width="1.6"/></svg></span>
+        <h3>Progress reviews</h3>
+        <p>Your notes become a review summary</p>
+      </div>
+      <div class="glance-item" data-reveal>
+        <span class="glance-badge" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M12 2l9 5-9 5-9-5 9-5zM3 12l9 5 9-5M3 17l9 5 9-5" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></span>
+        <h3>Case formulation</h3>
+        <p>A 5 Ps framework to complete</p>
+      </div>
+      <div class="glance-item" data-reveal>
+        <span class="glance-badge" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M3 7l9 6 9-6" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></span>
+        <h3>Client emails</h3>
+        <p>Warm admin messages, drafted</p>
       </div>
     </div>
     <p class="glance-note" data-reveal>
@@ -325,6 +340,38 @@ export const assistHtml = `
           &mdash; soft, choice-based, and never pushy. Always yours to read and
           approve before anything reaches a client.</p>
         <div class="promise"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8.5l3.5 3.5L14 3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>You approve every message</div>
+      </article>
+
+      <article class="tool" data-reveal>
+        <span class="tool-ico" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M22 3L11 14M22 3l-7 19-4-8-8-4 19-7z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></span>
+        <h3>Referral letters</h3>
+        <p>Turn a few notes into a structured referral or GP letter — your words
+          kept verbatim, the clinical sections left for you, and nothing invented.</p>
+        <div class="promise"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8.5l3.5 3.5L14 3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>A letter scaffold, ready to complete</div>
+      </article>
+
+      <article class="tool" data-reveal>
+        <span class="tool-ico" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M4 20h16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><rect x="5" y="12" width="3" height="6" stroke="currentColor" stroke-width="1.6"/><rect x="10.5" y="8" width="3" height="10" stroke="currentColor" stroke-width="1.6"/><rect x="16" y="4" width="3" height="14" stroke="currentColor" stroke-width="1.6"/></svg></span>
+        <h3>Progress reviews</h3>
+        <p>Pull your session notes into a tidy review summary — reflecting only
+          what you wrote, with no invented progress or outcomes.</p>
+        <div class="promise"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8.5l3.5 3.5L14 3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Only what your notes actually say</div>
+      </article>
+
+      <article class="tool" data-reveal>
+        <span class="tool-ico" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 2l9 5-9 5-9-5 9-5zM3 12l9 5 9-5M3 17l9 5 9-5" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></span>
+        <h3>Case formulation</h3>
+        <p>A clean 5 Ps or biopsychosocial framework with your presenting problem
+          slotted in and each section ready for your clinical thinking.</p>
+        <div class="promise"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8.5l3.5 3.5L14 3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Structure for your own formulation</div>
+      </article>
+
+      <article class="tool" data-reveal>
+        <span class="tool-ico" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M3 7l9 6 9-6" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></span>
+        <h3>Client emails</h3>
+        <p>Warm, non-clinical admin messages — welcome, reminders, reschedules,
+          follow-ups — drafted for you to review and send.</p>
+        <div class="promise"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8.5l3.5 3.5L14 3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>You review before anything is sent</div>
       </article>
     </div>
   </div>

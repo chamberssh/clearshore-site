@@ -48,6 +48,28 @@
       required: ["client_goal", "format"],
       additionalProperties: false,
     },
+    referral: {
+      properties: {
+        referral_reason: { type: "string" }, client_context: { type: "string" },
+        recipient: { type: "string", enum: ["gp", "psychiatrist", "psychologist", "allied_health", "other"] },
+        tone: { type: "string", enum: ["professional", "warm", "concise"] },
+      },
+      required: ["referral_reason", "client_context", "recipient"], additionalProperties: false,
+    },
+    progress: {
+      properties: { session_notes: { type: "string" }, client_context: { type: "string" }, review_focus: { type: "string" } },
+      required: ["session_notes"], additionalProperties: false,
+    },
+    formulation: {
+      properties: { presenting_problem: { type: "string" }, client_context: { type: "string" },
+        framework: { type: "string", enum: ["five_ps", "biopsychosocial"] } },
+      required: ["presenting_problem"], additionalProperties: false,
+    },
+    "client-email": {
+      properties: { purpose: { type: "string", enum: ["welcome", "appointment_reminder", "reschedule", "gentle_follow_up", "thank_you"] },
+        details: { type: "string" }, tone: { type: "string", enum: ["warm", "plain", "professional"] } },
+      required: ["purpose"], additionalProperties: false,
+    },
   };
 
   function ValidationError(errors) { this.validation = true; this.errors = errors; }
@@ -81,6 +103,7 @@
 
   var RISK_INSTRUCTION =
     "MANDATORY: the clinician must complete a formal risk assessment now and follow local safeguarding procedures before this note is finalised.";
+  var TODO = "[Clinician to complete]";
 
   // ------------------------------------------------------------ session notes
   var SN_FRAMEWORKS = ["DAP", "SOAP", "BIRP", "narrative"];
@@ -348,7 +371,107 @@
       small_next_step: content.small_next_step, safety_note: CT_SAFETY, clinician_review_required: true };
   }
 
-  var GENERATORS = { "session-notes": generateNote, intake: processIntake, risk: monitorRisk, "client-tools": generateCheckin };
+  // ---------------------------------------------------------------- referral
+  var REF_RECIPIENTS = { gp: "the client's GP", psychiatrist: "a psychiatrist", psychologist: "a psychologist", allied_health: "an allied health colleague", other: "the receiving practitioner" };
+  var REF_RISK = ["suicid", "kill myself", "end my life", "self-harm", "self harm", "harm myself", "want to die", "hopeless", "unsafe", "risk of harm", "hurt someone"];
+  var REF_LIMITS = ["This is a template scaffold, not a finished letter or a clinical opinion.",
+    "It uses your words verbatim and marks clinical sections for you to complete; it invents nothing.",
+    "Confirm client consent to refer and share information before sending.",
+    "Review and complete the letter, and add your own clinical judgement, before it is sent."];
+  function generateReferral(data) {
+    validateInput(data, SCHEMAS.referral);
+    var reason = clean(data.referral_reason), context = clean(data.client_context), to = REF_RECIPIENTS[data.recipient];
+    var risk = REF_RISK.some(function (c) { return (reason + " " + context).toLowerCase().indexOf(c) !== -1; });
+    var L = ["Dear " + TODO + " (" + to + "),", "", "Re: " + TODO + " (client — de-identified reference)", "",
+      "I am writing to refer this client for " + (reason || TODO) + ".", "",
+      "Background (provided by the referring counsellor, verbatim):", context || "[Not provided]", "",
+      "Current presentation and clinical opinion: " + TODO, "What I am requesting: " + TODO + " (e.g. review, assessment, or ongoing care).",
+      "Relevant history and current supports: " + TODO];
+    if (risk) L.push("", "Note: this referral touches on possible risk. Include current risk information and confirm your safeguarding steps before sending.");
+    L.push("", "I am happy to provide any further information. Please contact me if helpful.", "", "Kind regards,", TODO + " (referring counsellor)");
+    var checklist = ["Client consent to refer and share information obtained.", "Recipient's correct name and contact details added.",
+      "Current presentation and your clinical opinion completed.", "Relevant history and risk information included where appropriate.",
+      "Your name, qualification, and contact details added."];
+    var actions = ["Complete every [Clinician to complete] section and review the whole letter before sending.", "Confirm consent and that the content is accurate and appropriate."];
+    if (risk) actions.unshift("Possible risk was mentioned: include current risk information and follow your safeguarding procedures.");
+    return { note_type: "Referral letter draft", recipient: to, draft_letter: L.join("\n"), checklist: checklist, clinician_actions: actions, limitations: REF_LIMITS.slice() };
+  }
+
+  // ---------------------------------------------------------------- progress
+  var PROG_RISK = REF_RISK;
+  var PROG_LIMITS = ["This is a deterministic organiser of the notes you provided; it does not interpret or evaluate them.",
+    "It has NOT inferred any improvement, progress, decline, or outcome — only your notes state those.",
+    "Missing information is not filled in.", "Review, correct, and add your own clinical judgement before using this summary."];
+  function generateProgress(data) {
+    validateInput(data, SCHEMAS.progress);
+    var notes = clean(data.session_notes), focus = clean(data.review_focus || "");
+    var risk = PROG_RISK.some(function (c) { return notes.toLowerCase().indexOf(c) !== -1; });
+    var parts = notes.split(/(?<=[.!?])\s+|\n+/).map(function (p) { return p.trim(); }).filter(Boolean);
+    var themes = parts.length ? parts.map(function (p) { return "Recorded in your notes (verbatim): " + p; }) : ["No notes were provided."];
+    var summary = "Review summary" + (focus ? " for: " + focus : "") + ". This is organised only from the notes you provided; no progress, improvement, or outcome has been inferred. Review and complete it yourself.";
+    var questions = ["Against the client's goals, what has changed (in your clinical judgement)?", "What remains a focus, and what are the next steps?",
+      "Is the current plan still appropriate, or is a change or referral indicated?", "Is there any current risk to screen for before the review is finalised?"];
+    var actions = ["Add your own assessment of progress and next steps — the tool has not done this.", "Verify every point against your records before using the summary."];
+    if (risk) actions.unshift("Risk language appears in the notes: run the Safety check and complete formal screening.");
+    return { note_type: "Progress review", summary: summary, themes: themes, outstanding_questions: questions, clinician_actions: actions, limitations: PROG_LIMITS.slice() };
+  }
+
+  // -------------------------------------------------------------- formulation
+  var FORM_SECTIONS = {
+    five_ps: [["Presenting", "What the client is presenting with"], ["Predisposing", "Longer-standing vulnerabilities or background factors"],
+      ["Precipitating", "What triggered or brought this on now"], ["Perpetuating", "What keeps it going"], ["Protective", "Strengths, supports, and protective factors"]],
+    biopsychosocial: [["Biological", "Physical health, sleep, medication, family history"], ["Psychological", "Thoughts, feelings, coping, beliefs"], ["Social", "Relationships, work, culture, environment"]],
+  };
+  var FORM_PROMPTS = {
+    five_ps: ["Predisposing: what in the client's history may have made them vulnerable?", "Precipitating: what happened recently that brought this on now?",
+      "Perpetuating: what patterns or circumstances keep it going?", "Protective: what strengths, people, or routines help?"],
+    biopsychosocial: ["Biological: sleep, health, medication, family history?", "Psychological: recurring thoughts, feelings, and coping styles?", "Social: relationships, work, culture, and environment?"],
+  };
+  var FORM_LIMITS = ["This is an empty framework for you to complete, not a formulation.",
+    "It places your presenting problem into the structure and invents nothing else.",
+    "No diagnosis, history, or interpretation has been generated.", "Complete each section with your own clinical judgement and review before use."];
+  function generateFormulation(data) {
+    validateInput(data, SCHEMAS.formulation);
+    var framework = data.framework || "five_ps";
+    if (!FORM_SECTIONS[framework]) throw new ValidationError(["field framework has an invalid value"]);
+    var problem = clean(data.presenting_problem), context = clean(data.client_context || "");
+    var L = ["[Case formulation - " + framework.replace(/_/g, " ") + "]", ""];
+    FORM_SECTIONS[framework].forEach(function (s) {
+      L.push("- " + s[0] + " (" + s[1] + "): " + (s[0] === "Presenting" && problem ? problem : TODO));
+    });
+    L.push("", "Background provided (verbatim, not interpreted):", context || "[Not provided]");
+    return { note_type: "Case formulation", framework: framework, formulation: L.join("\n"), prompts: FORM_PROMPTS[framework].slice(),
+      clinician_actions: ["Complete each section with your own clinical judgement.", "Review the formulation before using it in notes or planning."], limitations: FORM_LIMITS.slice() };
+  }
+
+  // -------------------------------------------------------------- client email
+  var EMAIL_RISK = ["suicid", "kill myself", "end my life", "self-harm", "self harm", "harm myself", "want to die", "hopeless", "unsafe", "not safe", "crisis", "hurt someone", "hurt myself"];
+  var EMAIL_SAFETY = "This is an administrative message only — not therapy, advice, or a crisis service. Review and send it yourself; do not include clinical content.";
+  var EMAIL_LIMITS = ["This is a non-clinical admin draft for you to review and send.", "It gives no medical, legal, emergency, or treatment advice.", "Add the correct details (names, times, links) and check tone before sending."];
+  var EMAIL_CONTENT = {
+    welcome: ["Welcome to Clearshore Counselling", "Thank you for reaching out. I'm glad you've taken this step, and I look forward to working with you. If you have any questions before we begin, feel free to reply to this message."],
+    appointment_reminder: ["A gentle reminder of your upcoming session", "This is a friendly reminder of your upcoming session. If anything has changed or you need to reschedule, just let me know — that's completely fine."],
+    reschedule: ["Rescheduling your session", "I'm writing about rescheduling your session. Please let me know a time that suits you, and we'll find something that works. Thank you for your flexibility."],
+    gentle_follow_up: ["Checking in", "I'm just checking in, with no pressure at all. If and when you'd like to arrange a session or have any questions, I'm here — reply whenever suits you."],
+    thank_you: ["Thank you", "Thank you for your time and trust. It's a privilege to do this work alongside you. Please don't hesitate to be in touch if there's anything you need."],
+  };
+  var EMAIL_OPENERS = { warm: "Hi,", plain: "Hello,", professional: "Dear client," };
+  function generateEmail(data) {
+    validateInput(data, SCHEMAS["client-email"]);
+    var purpose = data.purpose, details = clean(data.details || ""), tone = data.tone || "warm";
+    if (EMAIL_RISK.some(function (c) { return (purpose + " " + details).toLowerCase().indexOf(c) !== -1; })) {
+      return { subject: "Clinician review required before sending",
+        message: "This request mentions possible safety or risk, so no client message has been drafted. Do not send an automated message; use the Safety check and follow your risk and safeguarding procedures.",
+        clinician_review_required: true, safety_note: "This tool is for routine admin only, not safety or crisis contact. Human review is mandatory.", limitations: EMAIL_LIMITS.slice() };
+    }
+    var c = EMAIL_CONTENT[purpose], parts = [EMAIL_OPENERS[tone] || EMAIL_OPENERS.warm, "", c[1]];
+    if (details) parts.push("", "Details: " + details);
+    parts.push("", "Warm regards,", "[Your name]");
+    return { subject: c[0], message: parts.join("\n"), clinician_review_required: true, safety_note: EMAIL_SAFETY, limitations: EMAIL_LIMITS.slice() };
+  }
+
+  var GENERATORS = { "session-notes": generateNote, intake: processIntake, risk: monitorRisk, "client-tools": generateCheckin,
+    referral: generateReferral, progress: generateProgress, formulation: generateFormulation, "client-email": generateEmail };
 
   var TOOLS_META = [
     { id: "session-notes", name: "Session note", blurb: "Turn a short summary into a tidy note.",
@@ -364,6 +487,17 @@
     { id: "client-tools", name: "Client check-in", blurb: "A gentle reflection for between sessions.",
       fields: [["client_goal", "Focus for the check-in", "text", "e.g. notice small moments of calm this week"],
         ["client_context", "Any approved context (optional)", "textarea", ""], ["format", "Type of check-in", "select", ""], ["tone", "Tone", "select", ""]] },
+    { id: "referral", name: "Referral letter", blurb: "Draft a referral or GP letter scaffold.",
+      fields: [["referral_reason", "Reason for referral", "textarea", "e.g. review of low mood and possible medication review"],
+        ["client_context", "Relevant background (de-identified)", "textarea", ""], ["recipient", "Referring to", "select", ""], ["tone", "Tone", "select", ""]] },
+    { id: "progress", name: "Progress review", blurb: "Organise your notes into a review summary.",
+      fields: [["session_notes", "Your notes across sessions", "textarea", "Paste your de-identified session notes or summaries..."],
+        ["client_context", "Any context (optional)", "textarea", ""], ["review_focus", "What the review is for (optional)", "text", "e.g. three-month review"]] },
+    { id: "formulation", name: "Case formulation", blurb: "A 5 Ps / biopsychosocial scaffold.",
+      fields: [["presenting_problem", "Presenting problem", "textarea", "A few sentences on what the client presents with..."],
+        ["client_context", "Relevant background (optional)", "textarea", ""], ["framework", "Framework", "select", ""]] },
+    { id: "client-email", name: "Client email", blurb: "A warm, non-clinical admin message.",
+      fields: [["purpose", "Purpose", "select", ""], ["details", "Details (optional, de-identified)", "textarea", "e.g. session on Tuesday at 10am"], ["tone", "Tone", "select", ""]] },
   ];
   function getSpecs() {
     return TOOLS_META.map(function (m) {
