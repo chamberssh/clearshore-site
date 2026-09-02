@@ -180,6 +180,9 @@ export const assistHtml = `
   .assist-page .cta-band h2 em { font-style: italic; color: var(--sand); font-weight: 500; }
   .assist-page .cta-band p { margin: 1.2rem auto 0; max-width: 46ch; color: var(--on-dark-muted); }
   .assist-page .cta-band .hero-cta { justify-content: center; }
+  .assist-page .download-line { margin-top: 1.4rem; font-size: 0.9rem; color: var(--on-dark-muted); }
+  .assist-page .download-line a { color: var(--sand); text-decoration: underline; text-underline-offset: 2px; font-weight: 600; }
+  .assist-page .download-line a:hover { color: #f0c884; }
   .assist-page .disclaimer-band { border-top: 1px solid var(--hairline); padding-block: 1.8rem; }
   .assist-page .disclaimer-band p { max-width: 70ch; margin-inline: auto; text-align: center; font-size: 0.82rem; color: var(--on-dark-muted); line-height: 1.6; }
 
@@ -419,6 +422,11 @@ export const assistHtml = `
       <a class="a-btn sand" href="mailto:hello@clearshorecounselling.com?subject=Clearshore%20Assist%20early%20access">Request early access</a>
       <a class="a-btn ghost" href="#tools">See how it helps</a>
     </div>
+    <p class="download-line" data-reveal>
+      Testing it out?
+      <a href="/downloads/clearshore-assist-windows.exe" download>Download the Windows app (beta)</a>
+      &mdash; an unsigned preview, Windows only for now.
+    </p>
   </div>
 </section>
 
