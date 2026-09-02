@@ -16,7 +16,7 @@ const navLinks = [
   { href: "/faq", label: "FAQ" },
   { href: "/resources", label: "Resources" },
   { href: "/blog", label: "Blog" },
-  { href: "/counsellor-guide", label: "Counsellors" },
+  { href: "/assist", label: "Counsellors" },
   { href: "/contact", label: "Contact" },
 ];
 

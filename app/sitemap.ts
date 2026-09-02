@@ -8,7 +8,7 @@ const BASE_URL = "https://clearshorecounselling.com";
 const SITE_UPDATED = new Date("2026-07-20");
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const routes = ["", "/about", "/services", "/telehealth", "/faq", "/resources", "/contact", "/blog", "/privacy"];
+  const routes = ["", "/about", "/services", "/telehealth", "/faq", "/resources", "/contact", "/blog", "/assist", "/privacy"];
 
   const staticEntries: MetadataRoute.Sitemap = routes.map((route) => ({
     url: `${BASE_URL}${route}`,
