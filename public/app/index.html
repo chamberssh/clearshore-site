@@ -53,6 +53,8 @@
   .mic { position: absolute; top: 8px; right: 8px; width: 34px; height: 34px; border-radius: 50%; border: none; background: var(--teal-soft); color: var(--teal-deep); display: grid; place-items: center; cursor: pointer; }
   .mic.on { background: var(--crit); color: #fff; animation: pulse 1.2s infinite; }
   @keyframes pulse { 0%,100%{box-shadow:0 0 0 0 rgba(178,59,40,.4)} 50%{box-shadow:0 0 0 6px rgba(178,59,40,0)} }
+  .micstatus { font-size: 0.8rem; color: var(--teal-deep); margin-top: 6px; }
+  .micstatus.err { color: var(--crit); }
 
   .actions { display: flex; gap: 10px; margin-top: 4px; }
   .btn { flex: 1; font: inherit; font-weight: 650; font-size: 1rem; border: 1px solid transparent; border-radius: 999px; padding: 14px; cursor: pointer; }
@@ -166,27 +168,44 @@
       else { input = el("input"); input.type = "text"; }
       input.id = "f_" + f.name; input.name = f.name; if (f.placeholder) input.placeholder = f.placeholder;
       row.appendChild(input);
-      if (SR && f.widget !== "select") row.appendChild(makeMic(input));
-      wrap.appendChild(row); fields.appendChild(wrap);
+      var statusEl = null;
+      if (SR && f.widget !== "select") { statusEl = el("div", "micstatus"); row.appendChild(makeMic(input, statusEl)); }
+      wrap.appendChild(row);
+      if (statusEl) wrap.appendChild(statusEl);
+      fields.appendChild(wrap);
     });
     document.getElementById("formwrap").hidden = false;
     document.getElementById("result").hidden = true;
     document.getElementById("formwrap").scrollIntoView({ behavior: "smooth", block: "start" });
   }
 
-  function makeMic(input) {
+  function micError(code) {
+    switch (code) {
+      case "not-allowed":
+      case "service-not-allowed":
+        return "Microphone is blocked for this site. Allow mic access in your browser (tap the padlock in the address bar → Microphone → Allow), then tap the mic again.";
+      case "audio-capture": return "No microphone was found on this device.";
+      case "no-speech": return "Didn't hear anything — tap the mic and speak.";
+      case "network": return "Voice needs an internet connection (the browser processes speech online).";
+      case "aborted": return "";
+      default: return "Voice error" + (code ? " (" + code + ")" : "") + ". Try Chrome, or use your keyboard's mic key.";
+    }
+  }
+  function makeMic(input, statusEl) {
     var btn = el("button", "mic"); btn.type = "button"; btn.innerHTML = MIC; btn.setAttribute("aria-label", "Speak");
     var rec = null;
+    function set(msg, err) { statusEl.textContent = msg || ""; statusEl.className = "micstatus" + (err ? " err" : ""); }
     btn.addEventListener("click", function () {
-      if (rec) { rec.stop(); return; }
-      rec = new SR(); rec.lang = "en-AU"; rec.interimResults = true; rec.continuous = false;
+      if (rec) { try { rec.stop(); } catch (e) {} return; }
+      try { rec = new SR(); } catch (e) { set("Voice isn't available in this browser. Try Chrome, or use your keyboard's mic key.", true); return; }
+      rec.lang = "en-AU"; rec.interimResults = true; rec.continuous = false; rec.maxAlternatives = 1;
       var base = input.value ? input.value + " " : "";
-      btn.classList.add("on");
-      rec.onresult = function (e) { var t = ""; for (var i = 0; i < e.results.length; i++) t += e.results[i][0].transcript; input.value = base + t; };
-      rec.onerror = function () { stop(); };
-      rec.onend = function () { stop(); };
-      function stop() { btn.classList.remove("on"); rec = null; }
-      try { rec.start(); } catch (err) { btn.classList.remove("on"); rec = null; }
+      var got = false, listening = "Listening… tap the mic again to stop.";
+      rec.onstart = function () { btn.classList.add("on"); set(listening); };
+      rec.onresult = function (e) { got = true; var t = ""; for (var i = 0; i < e.results.length; i++) t += e.results[i][0].transcript; input.value = base + t; };
+      rec.onerror = function (e) { set(micError(e && e.error), true); };
+      rec.onend = function () { btn.classList.remove("on"); rec = null; if (!got && statusEl.textContent === listening) set("Didn't catch anything — tap the mic and speak clearly."); };
+      try { rec.start(); } catch (err) { btn.classList.remove("on"); rec = null; set("Couldn't start voice: " + ((err && err.message) || err), true); }
     });
     return btn;
   }
