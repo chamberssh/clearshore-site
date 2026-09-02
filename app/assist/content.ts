@@ -116,6 +116,22 @@ export const assistHtml = `
   .assist-page .band-dark .sec-head p { color: var(--on-dark-muted); }
   .assist-page .divider { display: block; width: 100%; height: 70px; }
 
+  /* at-a-glance infographic */
+  .assist-page .glance { padding-block: clamp(3rem, 6vw, 4.5rem); }
+  .assist-page .glance-intro { max-width: 56ch; }
+  .assist-page .glance-intro h2 { font-size: clamp(1.7rem, 3.4vw, 2.5rem); letter-spacing: -0.015em; }
+  .assist-page .glance-rail { margin-top: 2.8rem; position: relative; display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.4rem 1rem; }
+  .assist-page .glance-rail::before { content: ""; position: absolute; left: 12%; right: 12%; top: 34px; height: 2px; background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--teal) 48%, white) 20%, color-mix(in srgb, var(--teal) 48%, white) 80%, transparent); z-index: 0; }
+  .assist-page .glance-item { position: relative; z-index: 1; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 0.55rem; }
+  .assist-page .glance-badge { width: 68px; height: 68px; border-radius: 20px; display: grid; place-items: center; color: #fff; background: linear-gradient(160deg, var(--teal), var(--teal-deep)); box-shadow: 0 16px 28px -14px color-mix(in srgb, var(--teal-deep) 75%, transparent); border: 5px solid var(--fog); }
+  .assist-page .glance-item h3 { font-size: 1.12rem; }
+  .assist-page .glance-item p { font-size: 0.86rem; color: var(--on-fog-muted); max-width: 20ch; line-height: 1.4; }
+  .assist-page .glance-note { margin: 2.6rem auto 0; width: fit-content; display: flex; align-items: center; gap: 0.55rem; font-weight: 600; color: var(--teal-deep); background: color-mix(in srgb, var(--teal) 10%, white); border: 1px solid color-mix(in srgb, var(--teal) 26%, white); padding: 0.6rem 1.15rem; border-radius: 999px; font-size: 0.92rem; text-align: center; }
+  @media (max-width: 720px) {
+    .assist-page .glance-rail { grid-template-columns: repeat(2, 1fr); gap: 2rem 1rem; }
+    .assist-page .glance-rail::before { display: none; }
+  }
+
   /* tools */
   .assist-page .tools { margin-top: 2.8rem; display: grid; gap: 1.4rem; }
   @media (min-width: 720px) { .assist-page .tools { grid-template-columns: repeat(2, 1fr); } }
@@ -230,10 +246,45 @@ export const assistHtml = `
 
 <svg class="divider" viewBox="0 0 1440 70" preserveAspectRatio="none" aria-hidden="true"><path d="M0 40 C 240 5, 480 5, 720 34 S 1200 70, 1440 30 L1440 70 L0 70 Z" fill="#eef1ef"/></svg>
 
-<section id="tools" class="band-fog sec">
+<section class="band-fog glance">
+  <div class="wrap">
+    <div class="glance-intro" data-reveal>
+      <p class="eyebrow on-fog">At a glance</p>
+      <h2>Four helpers. One simple promise.</h2>
+    </div>
+    <div class="glance-rail">
+      <div class="glance-item" data-reveal>
+        <span class="glance-badge" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M6 3h9l4 4v14H6z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M14 3v5h5M9 13h6M9 17h4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+        <h3>Session notes</h3>
+        <p>Your summary becomes a tidy note</p>
+      </div>
+      <div class="glance-item" data-reveal>
+        <span class="glance-badge" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="none"><rect x="4" y="3" width="16" height="18" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M8 8h8M8 12h8M8 16h5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+        <h3>Intake summaries</h3>
+        <p>First contact becomes a clear picture</p>
+      </div>
+      <div class="glance-item" data-reveal>
+        <span class="glance-badge" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M12 3l8 3v5c0 5-3.4 8.4-8 10-4.6-1.6-8-5-8-10V6l8-3z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M12 8v4M12 15h.01" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+        <h3>Safety check</h3>
+        <p>Quietly spots risk language for you</p>
+      </div>
+      <div class="glance-item" data-reveal>
+        <span class="glance-badge" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M12 20s-7-4.3-7-9.5A4.5 4.5 0 0 1 12 7a4.5 4.5 0 0 1 7 3.5C19 15.7 12 20 12 20z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></span>
+        <h3>Client check-ins</h3>
+        <p>Gentle reflections between sessions</p>
+      </div>
+    </div>
+    <p class="glance-note" data-reveal>
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8.5l3.5 3.5L14 3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Every one comes back as a draft you review and approve
+    </p>
+  </div>
+</section>
+
+<section id="tools" class="band-fog sec" style="padding-top:0;">
   <div class="wrap">
     <div class="sec-head" data-reveal>
-      <p class="eyebrow on-fog">Four gentle helpers</p>
+      <p class="eyebrow on-fog">A closer look</p>
       <h2>The paperwork, drafted. The judgement, yours.</h2>
       <p>Give each helper a few plain sentences, and it hands back a warm, tidy
         first draft &mdash; honest about what it doesn&rsquo;t know, and always
