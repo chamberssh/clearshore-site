@@ -1,0 +1,3 @@
+node_modules/
+# Generated from ../public/app by `npm run sync-web` — never edited by hand.
+www/

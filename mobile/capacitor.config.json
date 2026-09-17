@@ -1,0 +1,13 @@
+{
+  "appId": "au.com.clearshorecounselling.assist",
+  "appName": "Clearshore Assist",
+  "webDir": "www",
+  "backgroundColor": "#14505d",
+  "ios": {
+    "contentInset": "always",
+    "backgroundColor": "#14505d"
+  },
+  "android": {
+    "backgroundColor": "#14505d"
+  }
+}

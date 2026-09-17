@@ -1,0 +1,18 @@
+{
+  "name": "clearshore-assist-mobile",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Native shell around the Clearshore Assist web app",
+  "scripts": {
+    "sync-web": "node scripts/sync-web.mjs",
+    "build": "npm run sync-web && cap sync",
+    "open:ios": "cap open ios",
+    "open:android": "cap open android"
+  },
+  "dependencies": {
+    "@capacitor/android": "^8.5.2",
+    "@capacitor/cli": "^8.5.2",
+    "@capacitor/core": "^8.5.2",
+    "@capacitor/ios": "^8.5.2"
+  }
+}
