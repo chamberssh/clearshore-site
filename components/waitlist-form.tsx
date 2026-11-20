@@ -1,14 +1,21 @@
 "use client";
 
 import Script from "next/script";
-import { useState, type FormEvent } from "react";
+import { useEffect, useState, type FormEvent } from "react";
 import { Button } from "@/components/ui/button";
 
 type Status = "idle" | "submitting" | "success" | "error";
 
 export function WaitlistForm() {
   const [status, setStatus] = useState<Status>("idle");
-  const turnstileSiteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
+  const [turnstileSiteKey, setTurnstileSiteKey] = useState<string>();
+
+  useEffect(() => {
+    fetch("/api/turnstile-config")
+      .then((response) => response.json())
+      .then((result) => setTurnstileSiteKey(result.siteKey || undefined))
+      .catch(() => setTurnstileSiteKey(undefined));
+  }, []);
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
