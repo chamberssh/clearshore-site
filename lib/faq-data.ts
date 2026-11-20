@@ -151,7 +151,7 @@ export const faqCategories: FaqCategory[] = [
       },
       {
         q: "Is Shelley a registered counsellor or psychologist?",
-        a: "Not yet. Shelley is completing her Postgraduate Diploma in Counselling and is working toward ACA (Australian Counselling Association) or PACFA registration after graduation. She is not currently a registered psychologist. Registration details will be confirmed on this site before counselling services begin.",
+        a: "Shelley is currently an ACA (Australian Counselling Association) Student Member while completing her Postgraduate Diploma in Counselling. She is working toward full ACA or PACFA counsellor registration after graduation. She is not currently a registered counsellor or psychologist. Registration details will be confirmed on this site before counselling services begin.",
       },
       {
         q: "What is Shelley's background before counselling?",

@@ -32,7 +32,6 @@ const qualifications = [
     icon: ShieldCheck,
     text: (
       <>
-        Working toward{" "}
         <a
           href="https://theaca.net.au/"
           target="_blank"
@@ -41,7 +40,16 @@ const qualifications = [
         >
           ACA
         </a>{" "}
-        /{" "}
+        Student Member; working toward full counsellor registration with{" "}
+        <a
+          href="https://theaca.net.au/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="underline underline-offset-2 hover:text-teal"
+        >
+          ACA
+        </a>{" "}
+        or{" "}
         <a
           href="https://www.pacfa.org.au/"
           target="_blank"
@@ -50,7 +58,7 @@ const qualifications = [
         >
           PACFA
         </a>{" "}
-        registration
+        after graduation
       </>
     ),
   },
