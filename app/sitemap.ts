@@ -5,7 +5,7 @@ import { services } from "@/lib/services";
 const BASE_URL = "https://clearshorecounselling.com";
 
 // Bump when static page content meaningfully changes.
-const SITE_UPDATED = new Date("2026-07-20");
+const SITE_UPDATED = new Date("2026-11-20");
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const routes = ["", "/about", "/services", "/telehealth", "/faq", "/resources", "/contact", "/blog", "/assist", "/privacy"];
