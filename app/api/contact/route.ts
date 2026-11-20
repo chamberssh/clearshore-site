@@ -3,8 +3,30 @@ import { NextRequest, NextResponse } from "next/server";
 export const runtime = "nodejs";
 
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const submissionWindows = new Map<string, { count: number; expiresAt: number }>();
 
 export async function POST(request: NextRequest) {
+  const origin = request.headers.get("origin");
+  if (origin) {
+    const originUrl = new URL(origin);
+    if (!["clearshorecounselling.com", "www.clearshorecounselling.com"].includes(originUrl.hostname)) {
+      return NextResponse.json({ success: false }, { status: 403 });
+    }
+  }
+
+  const now = Date.now();
+  const ip = request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ?? "unknown";
+  const window = submissionWindows.get(ip);
+
+  if (window && window.expiresAt > now && window.count >= 5) {
+    return NextResponse.json({ success: false }, { status: 429 });
+  }
+
+  submissionWindows.set(ip, {
+    count: window && window.expiresAt > now ? window.count + 1 : 1,
+    expiresAt: window && window.expiresAt > now ? window.expiresAt : now + 15 * 60 * 1000,
+  });
+
   const formData = await request.formData();
 
   if (formData.get("botcheck")?.toString()) {
@@ -29,31 +51,30 @@ export async function POST(request: NextRequest) {
   }
 
   const turnstileSecret = process.env.TURNSTILE_SECRET_KEY;
-  if (turnstileSecret) {
-    const token = formData.get("cf-turnstile-response")?.toString();
-    if (!token) {
-      return NextResponse.json({ success: false }, { status: 400 });
-    }
+  const accessKey = process.env.WEB3FORMS_ACCESS_KEY;
 
-    const verification = await fetch("https://challenges.cloudflare.com/turnstile/v0/siteverify", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        secret: turnstileSecret,
-        response: token,
-        remoteip: request.headers.get("x-forwarded-for")?.split(",")[0]?.trim(),
-      }),
-    });
-
-    const verificationResult = await verification.json();
-    if (!verificationResult.success) {
-      return NextResponse.json({ success: false }, { status: 400 });
-    }
+  if (!turnstileSecret || !accessKey) {
+    return NextResponse.json({ success: false }, { status: 503 });
   }
 
-  const accessKey = process.env.WEB3FORMS_ACCESS_KEY;
-  if (!accessKey) {
-    return NextResponse.json({ success: false }, { status: 500 });
+  const token = formData.get("cf-turnstile-response")?.toString();
+  if (!token) {
+    return NextResponse.json({ success: false }, { status: 400 });
+  }
+
+  const verification = await fetch("https://challenges.cloudflare.com/turnstile/v0/siteverify", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      secret: turnstileSecret,
+      response: token,
+      remoteip: ip,
+    }),
+  });
+
+  const verificationResult = await verification.json();
+  if (!verificationResult.success) {
+    return NextResponse.json({ success: false }, { status: 400 });
   }
 
   const outbound = new FormData();
