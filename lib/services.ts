@@ -41,7 +41,7 @@ export const services: Service[] = [
       "Support through pregnancy loss, infant loss, child bereavement, and every profound loss that doesn't get talked about enough.",
     intro: [
       "This is the heart of my work. I offer counselling for pregnancy loss, infant loss, the death of a child, and other profound losses — the ones that change the shape of a life.",
-      "I am a mother who has lost a child, and I organise Hervey Bay's Walk to Remember for bereaved families each year. Grief isn't something I've only studied. When you sit with me, you won't have to explain why you're not \"over it\", and you won't be handed a timeline. There isn't one.",
+      "I bring lived experience of bereavement alongside professional training and practice. When you sit with me, you won't have to explain why you're not \"over it\", and you won't be handed a timeline. There isn't one.",
     ],
     whoForTitle: "This may be a fit if you are",
     whoFor: [
@@ -228,7 +228,7 @@ export const services: Service[] = [
       "For parents and families navigating grief, crisis, and the seasons that ask more of you than you have to give.",
     intro: [
       "Families rarely go through hard things one person at a time. Loss, illness, separation, a child who's struggling — these move through a whole household, and everyone carries them differently.",
-      "My years as a teacher and as a Child Safety Officer taught me to see the emotional lives beneath everyday behaviour — in children and in parents — and to hold deep respect for how loss, fear and hope move through a family, often all at once. As a mother of four, I also know parenting is the hardest work most of us will ever do.",
+      "My years as a teacher and in child protection taught me to see the emotional lives beneath everyday behaviour — in children and in parents — and to hold deep respect for how loss, fear and hope move through a family, often all at once.",
     ],
     whoForTitle: "This may be a fit if you are",
     whoFor: [

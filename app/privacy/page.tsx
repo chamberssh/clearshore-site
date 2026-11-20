@@ -26,7 +26,7 @@ export default function Privacy() {
 
       <section className="px-4 py-20 sm:px-6">
         <div className="mx-auto max-w-3xl space-y-8 text-ink/90">
-          <p className="text-sm text-ink/60">Last updated: 13 July 2026</p>
+          <p className="text-sm text-ink/60">Last updated: 20 November 2026</p>
 
           <p>
             Clearshore Counselling (“we”, “us”) respects
@@ -43,11 +43,10 @@ export default function Privacy() {
             <p className="mt-3">
               The only personal information this website collects is what you
               choose to submit through the contact form: your name, email
-              address, and message. We don&apos;t use analytics or tracking
-              cookies. The only cookie this site sets is a strictly necessary
-              one that keeps you signed in to the private preview password
-              during the pre-launch period, and it stores no personal
-              information.
+              address, and message. We don&apos;t use analytics or advertising
+              tracking cookies. Submission spam protection may set a temporary
+              verification token through Cloudflare Turnstile without creating
+              an advertising profile.
             </p>
           </div>
 

@@ -1,8 +1,7 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
-import { SITE_AUTH_COOKIE, hashSitePassword } from "@/lib/site-auth";
 
-export async function proxy(request: NextRequest) {
+export function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
   // The counsellor guide was merged into the Clearshore Assist page.
@@ -10,22 +9,7 @@ export async function proxy(request: NextRequest) {
     return NextResponse.redirect(new URL("/assist", request.url));
   }
 
-  if (pathname === "/enter" || pathname === "/api/enter") {
-    return NextResponse.next();
-  }
-
-  const cookie = request.cookies.get(SITE_AUTH_COOKIE)?.value;
-  const expected = await hashSitePassword(process.env.SITE_PASSWORD ?? "");
-
-  if (cookie && cookie === expected) {
-    return NextResponse.next();
-  }
-
-  const url = request.nextUrl.clone();
-  url.pathname = "/enter";
-  url.search = "";
-  url.searchParams.set("redirect", pathname);
-  return NextResponse.redirect(url);
+  return NextResponse.next();
 }
 
 export const config = {

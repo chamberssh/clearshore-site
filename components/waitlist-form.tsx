@@ -1,5 +1,6 @@
 "use client";
 
+import Script from "next/script";
 import { useState, type FormEvent } from "react";
 import { Button } from "@/components/ui/button";
 
@@ -7,6 +8,7 @@ type Status = "idle" | "submitting" | "success" | "error";
 
 export function WaitlistForm() {
   const [status, setStatus] = useState<Status>("idle");
+  const turnstileSiteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -14,15 +16,10 @@ export function WaitlistForm() {
 
     const form = event.currentTarget;
     const formData = new FormData(form);
-    formData.append(
-      "access_key",
-      process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY ?? ""
-    );
-    formData.append("subject", "New waitlist signup — Clearshore Counselling");
-    formData.append("from_name", "Clearshore Counselling website");
+    formData.append("form_type", "waitlist");
 
     try {
-      const response = await fetch("https://api.web3forms.com/submit", {
+      const response = await fetch("/api/contact", {
         method: "POST",
         body: formData,
       });
@@ -49,6 +46,19 @@ export function WaitlistForm() {
 
   return (
     <form onSubmit={handleSubmit} className="mx-auto max-w-md">
+      {turnstileSiteKey && (
+        <>
+          <Script
+            src="https://challenges.cloudflare.com/turnstile/v0/api.js"
+            strategy="afterInteractive"
+          />
+          <div
+            className="cf-turnstile mb-3 flex justify-center"
+            data-sitekey={turnstileSiteKey}
+            data-theme="light"
+          />
+        </>
+      )}
       <input
         type="checkbox"
         name="botcheck"

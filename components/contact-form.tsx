@@ -1,5 +1,6 @@
 "use client";
 
+import Script from "next/script";
 import { useState, type FormEvent } from "react";
 import { Button } from "@/components/ui/button";
 
@@ -7,6 +8,7 @@ type Status = "idle" | "submitting" | "success" | "error";
 
 export function ContactForm() {
   const [status, setStatus] = useState<Status>("idle");
+  const turnstileSiteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -14,15 +16,9 @@ export function ContactForm() {
 
     const form = event.currentTarget;
     const formData = new FormData(form);
-    formData.append(
-      "access_key",
-      process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY ?? ""
-    );
-    formData.append("subject", "New enquiry from Clearshore Counselling website");
-    formData.append("from_name", "Clearshore Counselling website");
 
     try {
-      const response = await fetch("https://api.web3forms.com/submit", {
+      const response = await fetch("/api/contact", {
         method: "POST",
         body: formData,
       });
@@ -56,6 +52,20 @@ export function ContactForm() {
       onSubmit={handleSubmit}
       className="space-y-5 rounded-3xl border border-soft-teal/40 bg-white p-8 shadow-sm"
     >
+      {turnstileSiteKey && (
+        <>
+          <Script
+            src="https://challenges.cloudflare.com/turnstile/v0/api.js"
+            strategy="afterInteractive"
+          />
+          <div
+            className="cf-turnstile"
+            data-sitekey={turnstileSiteKey}
+            data-theme="light"
+          />
+        </>
+      )}
+
       {/* Honeypot field for spam bots — hidden from real visitors */}
       <input
         type="checkbox"

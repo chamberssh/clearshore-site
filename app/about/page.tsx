@@ -164,7 +164,7 @@ export default function About() {
             The loss that shaped this work
           </h2>
           <p className="mt-6 text-ink/90">
-            I am a mother who has lost a child. It is the most significant
+            I have lived through the death of a child. It is the most significant
             thing that has ever happened to me, and it has shaped why I do this
             work. I bring both personal understanding and professional training,
             while recognising that every person&apos;s grief is individual. I

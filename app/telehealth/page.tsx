@@ -67,7 +67,7 @@ export default function Telehealth() {
           <p className="mt-6 text-lg text-white/90">
             Secure telehealth sessions available Australia-wide, alongside
             in-person sessions in Hervey Bay, Queensland — the same warmth
-            and care, wherever you're logging in from.
+            and care, wherever you&apos;re logging in from.
           </p>
         </div>
         <WaveDivider className="absolute inset-x-0 bottom-0 translate-y-px text-white" />

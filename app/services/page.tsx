@@ -84,9 +84,9 @@ export default function Services() {
             This is the heart of my work. I offer support through pregnancy
             loss, infant loss, child bereavement, and other profound losses —
             walking alongside you rather than trying to fix or rush you
-            through. As a mother who has lost a child, and as the organiser
-            of the Hervey Bay Walk to Remember, grief and loss aren&apos;t
-            something I&apos;ve only studied. It&apos;s where I&apos;m most
+            through. My lived experience of bereavement sits alongside my
+            professional training, while grief and loss aren&apos;t something
+            I&apos;ve only studied. It&apos;s where I&apos;m most
             at home, and where I most want to sit with you.
           </p>
           <div className="mt-6">

@@ -216,10 +216,9 @@ export default function Home() {
               &ldquo;I don&apos;t come to grief from theory alone.&rdquo;
             </p>
             <p className="mt-4 text-ink/90">
-              I&apos;m Shelley — a mother, a former primary school teacher, and
-              a former Child Safety Officer. My own experience of losing a
-              child sits at the heart of why I do this work. I also organise
-              Hervey Bay&apos;s Walk to Remember, and I&apos;m completing my
+              I&apos;m Shelley — a former primary school teacher and former
+              child protection worker. Lived experience and professional
+              training both inform my approach to grief work. I&apos;m completing my
               Postgraduate Diploma in Counselling. Wherever you are in your
               story, I&apos;d be glad to sit alongside you.
             </p>

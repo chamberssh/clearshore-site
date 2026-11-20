@@ -36,11 +36,14 @@ npx tsc --noEmit  # type check
 
 Copy `.env.local.example` to `.env.local` and set:
 
-- `NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY` — the contact form's submit key, get one free
-  at [web3forms.com](https://web3forms.com)
-- `SITE_PASSWORD` — the whole site is gated behind this password (via `proxy.ts`)
-  until launch. Must also be set in Vercel's project environment variables, or the
-  live site will reject every request.
+- `WEB3FORMS_ACCESS_KEY` — server-only contact form submit key, get one at
+  [web3forms.com](https://web3forms.com)
+- `NEXT_PUBLIC_TURNSTILE_SITE_KEY` — public Cloudflare Turnstile site key
+- `TURNSTILE_SECRET_KEY` — server-only Cloudflare Turnstile secret key
+
+The public preview password gate is disabled. The contact and waitlist forms
+submit through `/api/contact`; submissions are validated server-side and should
+use both Turnstile keys in production.
 
 ## Structure
 

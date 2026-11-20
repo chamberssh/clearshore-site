@@ -17,7 +17,7 @@ export const posts: BlogPost[] = [
     date: "2026-07-13",
     content: `Somewhere along the way, a lot of us picked up the idea that grief has a finish line, that if we’re doing it “right,” we’ll eventually move on, close the chapter, and get back to normal. I want to gently push back on that. In my experience, both personal and professional, it isn’t true, and I think believing it is true is part of what makes grief so much harder to carry than it needs to be.
 
-I am a mother who has lost a child. I won’t dress that up or explain it away, and I won’t pretend I’ve since “moved on.” What I can tell you is that grief changes shape over time. It doesn’t disappear, but it becomes something you can carry differently. Not lighter, exactly, but more familiar. Less like something happening to you, and more like something that simply lives alongside you now.
+I have lived through the death of a child. I won’t dress that up or explain it away, and I won’t pretend I’ve since “moved on.” What I can tell you is that grief changes shape over time. It doesn’t disappear, but it becomes something you can carry differently. Not lighter, exactly, but more familiar. Less like something happening to you, and more like something that simply lives alongside you now.
 
 That shift doesn’t happen because you try hard enough, or think positively enough, or give it enough time on some invisible schedule. It happens slowly, unevenly, and usually not in a straight line. Some days will feel steadier than others. A song, a smell, an anniversary you weren’t even tracking can undo weeks of feeling okay, and that isn’t a setback. It’s just what grief does.
 
@@ -128,10 +128,10 @@ I’ll be offering support for anxiety and life transitions in person in Hervey 
     slug: "parenting-through-the-season-you-didnt-choose",
     title: "Parenting Through the Season You Didn’t Choose",
     description:
-      "Holding your own pain while still showing up for your kids. Gentle family and parenting support from a mother of four in Hervey Bay, Queensland.",
+      "Holding your own pain while still showing up for your kids. Gentle family and parenting support in Hervey Bay, Queensland.",
     category: "Family & Parenting Support",
     date: "2026-07-13",
-    content: `I am a mother of four, and I am a mother who has lost a child. Some of my hardest days as a parent haven’t been about anything my children did. They’ve been about trying to hold my own grief in one hand and show up steady for them with the other, often in the very same hour.
+    content: `I am a parent who has lived through bereavement. Some of my hardest days as a parent haven’t been about anything my children did. They’ve been about trying to hold my own grief in one hand and show up steady for them with the other, often in the very same hour.
 
 If you’re parenting through a hard season right now, whether that’s loss, illness, separation, financial strain, or simply a stretch of life that’s asking more of you than feels possible, I want you to know that the exhaustion you feel isn’t a sign you’re failing. It’s a sign of how much you’re carrying.
 
@@ -189,7 +189,7 @@ Secure telehealth sessions will be available Australia-wide alongside in-person 
     date: "2026-07-14",
     content: `People often come to grief expecting tears, and when tears don’t come, or when what comes instead is anger, or numbness, or a strange flatness where sadness “should” be, they quietly start to worry something is wrong with them. I want to say clearly: there is nothing wrong with you. Grief rarely follows the shape we expect it to.
 
-I’ve sat with grief in many forms, in families I supported through child safety work, in the Hervey Bay grief-and-loss community through Walk to Remember, and in my own life, as a mother who has lost a child. I can tell you honestly that some of my hardest days weren’t sad days at all. They were irritable days, or exhausted days, or days where I felt strangely, guiltily, nothing.
+I’ve sat with grief in many forms through my professional work and lived experience of bereavement. I can tell you honestly that some of my hardest days weren’t sad days at all. They were irritable days, or exhausted days, or days where I felt strangely, guiltily, nothing.
 
 **The faces grief wears**
 
@@ -216,7 +216,7 @@ If you’re carrying a loss and it doesn’t look the way you expected, in perso
       "Walking back into a classroom while you’re grieving is its own particular kind of hard. A former teacher and grief counsellor on going back before you feel ready.",
     category: "Educator Wellbeing",
     date: "2026-07-14",
-    content: `There’s a particular kind of hard that comes with walking back into a classroom while you’re still grieving. I know it from two directions: as a former teacher who has stood at the front of a room while carrying something heavy, and as a mother who has lost a child. Few workplaces ask what teaching asks, that you be fully present, patient, and “on” for thirty children, the moment you walk through the door, regardless of what you’re carrying underneath.
+    content: `There’s a particular kind of hard that comes with walking back into a classroom while you’re still grieving. I know it from two directions: as a former teacher who has stood at the front of a room while carrying something heavy, and through lived experience of bereavement. Few workplaces ask what teaching asks, that you be fully present, patient, and “on” for thirty children, the moment you walk through the door, regardless of what you’re carrying underneath.
 
 Most other jobs let you close an office door for a moment, or step away from your desk to collect yourself. Teaching rarely offers that. The bell goes, the children arrive, and you’re expected to meet them exactly as they need you, whatever kind of morning you’ve had, whatever anniversary it happens to be, whatever news you received the night before.
 
@@ -240,12 +240,12 @@ If you’re a teacher or school staff member grieving while trying to keep showi
     slug: "talking-to-children-about-death",
     title: "Talking to Children About Death, Without the Right Words",
     description:
-      "You don’t need the perfect script to talk to your children about death or loss. Gentle, honest guidance from a mother of four and grief counsellor in Hervey Bay.",
+      "You don’t need the perfect script to talk to your children about death or loss. Gentle, honest guidance from a grief counsellor in Hervey Bay.",
     category: "Family & Parenting Support",
     date: "2026-07-14",
     content: `One of the questions I’m asked most often, by parents who are themselves grieving or supporting a grieving child, is some version of “what do I even say?” I understand the fear underneath that question. It’s the fear of getting it wrong, of causing more pain, of saying the one thing that will damage a child who’s already hurting. I want to gently take some of that pressure off you. There is no perfect script. There is only showing up, honestly, alongside your child.
 
-As a mother of four, and a mother who has lost a child, I’ve had to find words for death with my own children more than once. I can tell you from that experience, not just from training, that children don’t need the “right” words from you nearly as much as they need your honesty and your steadiness.
+As a parent who has lived through bereavement, I’ve had to find words for death with my own children more than once. I can tell you from that experience, not just from training, that children don’t need the “right” words from you nearly as much as they need your honesty and your steadiness.
 
 **Simple, honest language holds up best**
 
@@ -363,7 +363,7 @@ Both in-person sessions in Hervey Bay and secure telehealth sessions Australia-w
       "Anniversary grief can hit harder than the loss itself once felt. A grief counsellor in Hervey Bay on carrying the dates other people forget.",
     category: "Grief & Loss",
     date: "2026-07-14",
-    content: `There’s a particular kind of loneliness that comes with anniversary grief, the birthday that would have been, the due date that never arrived, the date on the calendar that means everything to you and nothing, visibly, to almost anyone else. I know this loneliness personally, as a mother who has lost a child, and I know it from the families I’ve walked alongside through Hervey Bay’s Walk to Remember, many of whom carry exactly this kind of date every single year.
+    content: `There’s a particular kind of loneliness that comes with anniversary grief, the birthday that would have been, the due date that never arrived, the date on the calendar that means everything to you and nothing, visibly, to almost anyone else. I know this loneliness personally through lived experience of bereavement, and I know it from the families I’ve walked alongside through Hervey Bay’s Walk to Remember, many of whom carry exactly this kind of date every single year.
 
 What surprises people most, in my experience, isn’t that these days are hard. It’s how hard they can be, sometimes harder than the early days of the loss itself, and how unprepared that leaves you, especially once other people seem to have quietly stopped expecting you to still be grieving.
 
