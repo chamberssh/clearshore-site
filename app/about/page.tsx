@@ -6,7 +6,6 @@ import {
   GraduationCap,
   School,
   ShieldCheck,
-  Users,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { WaveDivider } from "@/components/wave-divider";
@@ -62,10 +61,6 @@ const qualifications = [
   {
     icon: Building2,
     text: "Former Child Safety Officer, Queensland",
-  },
-  {
-    icon: Users,
-    text: "Mother of four",
   },
 ];
 
@@ -162,8 +157,9 @@ export default function About() {
           </h2>
           <p className="mt-6 text-ink/90">
             I am a mother who has lost a child. It is the most significant
-            thing that has ever happened to me, and it is why I do this work.
-            I don&apos;t come to grief from theory — I have sat inside it. I
+            thing that has ever happened to me, and it has shaped why I do this
+            work. I bring both personal understanding and professional training,
+            while recognising that every person&apos;s grief is individual. I
             won&apos;t pretend to have answers, but I can offer what I needed
             most in that time: someone steady, who doesn&apos;t rush you, and
             who won&apos;t look away.
@@ -191,8 +187,8 @@ export default function About() {
           <h2 className="font-heading text-3xl text-teal">My approach</h2>
           <p className="mt-6 text-ink/90">
             I believe in sitting with people in their hardest moments rather
-            than rushing them through. Counselling with me is warm, gentle
-            and unhurried — a safe, non-clinical, deeply human space, whether
+            than rushing them through. Counselling with me is warm, gentle,
+            professional and unhurried — a safe, deeply human space, whether
             we meet in person in Hervey Bay or online through telehealth.
             There&apos;s no pressure to arrive with the right words. We start
             wherever you are.

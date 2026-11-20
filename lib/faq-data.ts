@@ -122,7 +122,7 @@ export const faqCategories: FaqCategory[] = [
     items: [
       {
         q: "What is Shelley's approach to counselling?",
-        a: "Warm, gentle and unhurried. Shelley believes in sitting with people in their hardest moments rather than rushing them through, in a safe, non-clinical, deeply human space — whether you meet in person or by telehealth.",
+        a: "Warm, gentle, professional and unhurried. Shelley believes in sitting with people in their hardest moments rather than rushing them through, in a safe, deeply human space — whether you meet in person or by telehealth.",
       },
       {
         q: "Do I need to know what to say before my first session?",
@@ -147,11 +147,11 @@ export const faqCategories: FaqCategory[] = [
     items: [
       {
         q: "What are Shelley's qualifications?",
-        a: "Shelley holds a Psychology degree with Honours and is completing a Postgraduate Diploma in Counselling through the University of Canberra, expected in April 2027. Before training as a counsellor, she worked as a primary school teacher and later as a Child Safety Officer with a Queensland council.",
+        a: "Shelley holds a Psychology degree with Honours and is completing a Postgraduate Diploma in Counselling through the University of Canberra, expected in April 2027. This psychology degree does not mean she is a registered psychologist. Before training as a counsellor, she worked as a primary school teacher and later as a Child Safety Officer with a Queensland council.",
       },
       {
         q: "Is Shelley a registered counsellor or psychologist?",
-        a: "Not yet — Shelley is currently completing her Postgraduate Diploma in Counselling and will be progressing toward ACA (Australian Counselling Association) or PACFA registration once she graduates in April 2027. Full registration details will be confirmed on this site closer to opening.",
+        a: "Not yet. Shelley is completing her Postgraduate Diploma in Counselling and is working toward ACA (Australian Counselling Association) or PACFA registration after graduation. She is not currently a registered psychologist. Registration details will be confirmed on this site before counselling services begin.",
       },
       {
         q: "What is Shelley's background before counselling?",
